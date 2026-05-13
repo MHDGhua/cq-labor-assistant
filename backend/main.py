@@ -25,10 +25,12 @@ from .analysis import (
     build_review,
     build_trace_summary,
     build_transcript,
+    call_deepseek_review,
     check_statute_of_limitations,
     load_seed_knowledge_docs,
     run_analysis_pipeline,
 )
+from .agent_workflow import get_agent_runtime_config, get_provider_api_key
 from .database import Base, SessionLocal, engine, get_session
 from .models import AnalysisModel, AuditLogModel, CaseModel, FeedbackModel, KnowledgeDocModel
 from .schemas import (
@@ -690,8 +692,25 @@ def analyze_case_stream(payload: CaseInput, session: Session = Depends(get_sessi
         yield _sse_event("stage", {"current": 3, "total": 3, "label": "正在整理建议..."})
 
         review = build_review(extraction, retrieval)
-        transcript = build_transcript(extraction, retrieval, review)
-        trace = build_trace_summary(extraction, retrieval, review, transcript)
+        runtime = get_agent_runtime_config()
+        transcript_overrides = {}
+        if runtime.provider_mode == "deepseek" and runtime.api_key_configured:
+            api_key = get_provider_api_key()
+            if api_key:
+                review_result = call_deepseek_review(
+                    api_key=api_key,
+                    runtime=runtime,
+                    extraction=extraction,
+                    retrieval=retrieval,
+                    local_review=review,
+                )
+                if review_result is not None:
+                    review, raw_review = review_result
+                    from .agent_workflow import AGENT_TRANSCRIPT_LABELS
+                    transcript_overrides[AGENT_TRANSCRIPT_LABELS[2]] = raw_review
+
+        transcript = build_transcript(extraction, retrieval, review, transcript_overrides)
+        trace = build_trace_summary(extraction, retrieval, review, transcript, runtime=runtime)
         statute_warning = check_statute_of_limitations(payload.narrative)
 
         analysis_id = str(uuid4())
