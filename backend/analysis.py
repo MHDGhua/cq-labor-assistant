@@ -552,14 +552,14 @@ def build_review(extraction: dict, retrieval: dict) -> dict:
     return {
         "riskLevel": risk_level,
         **decision_signals,
-        “recommendation”: build_recommendation(extraction[“scenario”]),
+        "recommendation": build_recommendation(extraction["scenario"]),
         "analysis": (
             f"你的情况属于“{extraction['scenarioLabel']}”类争议。"
             f"参考的重庆本地案例包括{case_titles}；相关法律依据包括{doc_titles}。"
             "建议重点关注：事实是否完整、证据是否能支撑诉求、以及是否适合先调解后仲裁。"
         ),
-        “compensationRange”: build_compensation_range(extraction[“scenario”]),
-        “followUpQuestions”: build_follow_up_questions(extraction),
+        "compensationRange": build_compensation_range(extraction["scenario"]),
+        "followUpQuestions": build_follow_up_questions(extraction),
         "cautions": [
             "本结果仅用于信息参考，不构成法律意见。",
             "具体情况请咨询专业律师或拨打12348法律援助热线。",
@@ -985,54 +985,54 @@ def build_deepseek_extraction_prompt(narrative: str) -> list[dict[str, str]]:
 
 def build_deepseek_review_prompt(extraction: dict, retrieval: dict, local_review: dict) -> list[dict[str, str]]:
     system = (
-        “你是一位经验丰富的重庆劳动法律师，正在和一位普通劳动者对话。”
-        “你的任务是根据用户的具体情况，给出温暖、专业、有针对性的分析和建议。”
-        “\n\n要求：”
-        “\n1. 用第二人称'你'直接和用户说话，像朋友一样关心他们的处境”
-        “\n2. analysis 字段必须针对用户的具体事实进行分析，不要泛泛而谈”
-        “\n3. 结合检索到的重庆本地案例和法规，告诉用户他的情况在实践中通常怎么处理”
-        “\n4. recommendation 用一句话说清楚现在最该做什么”
-        “\n5. nextSteps 给出3-5个具体可操作的步骤”
-        “\n6. followUpQuestions 问用户还需要补充什么信息才能更准确判断”
-        “\n7. 不要输出胜诉保证、裁判偏向，但要给出实际有用的方向判断”
-        “\n8. 必须只输出JSON对象”
+        "你是一位经验丰富的重庆劳动法律师，正在和一位普通劳动者对话。"
+        "你的任务是根据用户的具体情况，给出温暖、专业、有针对性的分析和建议。"
+        "\n\n要求："
+        "\n1. 用第二人称'你'直接和用户说话，像朋友一样关心他们的处境"
+        "\n2. analysis 字段必须针对用户的具体事实进行分析，不要泛泛而谈"
+        "\n3. 结合检索到的重庆本地案例和法规，告诉用户他的情况在实践中通常怎么处理"
+        "\n4. recommendation 用一句话说清楚现在最该做什么"
+        "\n5. nextSteps 给出3-5个具体可操作的步骤"
+        "\n6. followUpQuestions 问用户还需要补充什么信息才能更准确判断"
+        "\n7. 不要输出胜诉保证、裁判偏向，但要给出实际有用的方向判断"
+        "\n8. 必须只输出JSON对象"
     )
     cases_summary = []
-    for c in retrieval.get(“cases”, [])[:3]:
-        cases_summary.append(f”- {c['title']}：{c.get('holding', c.get('summary', ''))}”)
+    for c in retrieval.get("cases", [])[:3]:
+        cases_summary.append(f"- {c['title']}：{c.get('holding', c.get('summary', ''))}")
     docs_summary = []
-    for d in retrieval.get(“knowledgeDocs”, [])[:4]:
-        docs_summary.append(f”- {d['title']}（{d.get('sourceLabel', '')}）：{d.get('summary', '')}”)
+    for d in retrieval.get("knowledgeDocs", [])[:4]:
+        docs_summary.append(f"- {d['title']}（{d.get('sourceLabel', '')}）：{d.get('summary', '')}")
 
-    user = “\n”.join([
-        “用户的情况：”,
-        f”- 争议类型：{extraction.get('scenarioLabel', '未识别')}”,
-        f”- 事实：{'；'.join(extraction.get('facts', []))}”,
-        f”- 时间线：{'；'.join(extraction.get('timeline', []))}”,
-        f”- 现有证据：{'；'.join(extraction.get('evidence', []))}”,
-        f”- 信息缺口：{'；'.join(extraction.get('missingInfo', []))}”,
-        “”,
-        “检索到的重庆本地案例：”,
-        “\n”.join(cases_summary) if cases_summary else “暂无”,
-        “”,
-        “相关法律法规：”,
-        “\n”.join(docs_summary) if docs_summary else “暂无”,
-        “”,
-        “请输出JSON，包含以下字段：”,
-        “- riskLevel: low/medium/high（材料完整度）”,
-        “- confidence: 0-1的小数”,
-        “- recommendation: 一句话建议（现在最该做什么）”,
-        “- analysis: 2-4段话的详细分析（针对用户具体情况，结合案例和法规，像律师和当事人面对面聊天一样）”,
-        “- compensationRange: 赔偿/补偿方向提示（如适用）”,
-        “- nextSteps: 具体可操作步骤列表”,
-        “- followUpQuestions: 需要用户补充的信息”,
-        “- handoffRequired: 是否建议找线下律师（bool）”,
-        “- handoffReasons: 建议找律师的原因”,
-        “- cautions: 注意事项”,
+    user = "\n".join([
+        "用户的情况：",
+        f"- 争议类型：{extraction.get('scenarioLabel', '未识别')}",
+        f"- 事实：{'；'.join(extraction.get('facts', []))}",
+        f"- 时间线：{'；'.join(extraction.get('timeline', []))}",
+        f"- 现有证据：{'；'.join(extraction.get('evidence', []))}",
+        f"- 信息缺口：{'；'.join(extraction.get('missingInfo', []))}",
+        "",
+        "检索到的重庆本地案例：",
+        "\n".join(cases_summary) if cases_summary else "暂无",
+        "",
+        "相关法律法规：",
+        "\n".join(docs_summary) if docs_summary else "暂无",
+        "",
+        "请输出JSON，包含以下字段：",
+        "- riskLevel: low/medium/high（材料完整度）",
+        "- confidence: 0-1的小数",
+        "- recommendation: 一句话建议（现在最该做什么）",
+        "- analysis: 2-4段话的详细分析（针对用户具体情况，结合案例和法规，像律师和当事人面对面聊天一样）",
+        "- compensationRange: 赔偿/补偿方向提示（如适用）",
+        "- nextSteps: 具体可操作步骤列表",
+        "- followUpQuestions: 需要用户补充的信息",
+        "- handoffRequired: 是否建议找线下律师（bool）",
+        "- handoffReasons: 建议找律师的原因",
+        "- cautions: 注意事项",
     ])
     return [
-        {“role”: “system”, “content”: system},
-        {“role”: “user”, “content”: user},
+        {"role": "system", "content": system},
+        {"role": "user", "content": user},
     ]
 
 
