@@ -552,18 +552,18 @@ def build_review(extraction: dict, retrieval: dict) -> dict:
     return {
         "riskLevel": risk_level,
         **decision_signals,
-        "recommendation": build_recommendation(extraction["scenario"]),
-        “analysis”: (
-            f”你的情况属于”{extraction['scenarioLabel']}”类争议。”
-            f”参考的重庆本地案例包括{case_titles}；相关法律依据包括{doc_titles}。”
-            “建议重点关注：事实是否完整、证据是否能支撑诉求、以及是否适合先调解后仲裁。”
+        “recommendation”: build_recommendation(extraction[“scenario”]),
+        "analysis": (
+            f"你的情况属于“{extraction['scenarioLabel']}”类争议。"
+            f"参考的重庆本地案例包括{case_titles}；相关法律依据包括{doc_titles}。"
+            "建议重点关注：事实是否完整、证据是否能支撑诉求、以及是否适合先调解后仲裁。"
         ),
-        "compensationRange": build_compensation_range(extraction["scenario"]),
-        "followUpQuestions": build_follow_up_questions(extraction),
-        “cautions”: [
-            “本结果仅用于信息参考，不构成法律意见。”,
-            “具体情况请咨询专业律师或拨打12348法律援助热线。”,
-            “如果存在时效、管辖或证据不足问题，应尽快补充材料。”,
+        “compensationRange”: build_compensation_range(extraction[“scenario”]),
+        “followUpQuestions”: build_follow_up_questions(extraction),
+        "cautions": [
+            "本结果仅用于信息参考，不构成法律意见。",
+            "具体情况请咨询专业律师或拨打12348法律援助热线。",
+            "如果存在时效、管辖或证据不足问题，应尽快补充材料。",
         ],
         "nextSteps": build_next_steps(extraction["scenario"]),
         "sourceSummary": {
@@ -971,54 +971,54 @@ def build_deepseek_extraction_prompt(narrative: str) -> list[dict[str, str]]:
 
 def build_deepseek_review_prompt(extraction: dict, retrieval: dict, local_review: dict) -> list[dict[str, str]]:
     system = (
-        "你是重庆劳动法结论审校Agent。"
-        "你只能输出法律信息参考，不得输出胜诉保证、裁判偏向或法律意见。"
-        "必须只输出JSON对象，不要输出Markdown、代码块、解释或多余文字。"
+        “你是一位经验丰富的重庆劳动法律师，正在和一位普通劳动者对话。”
+        “你的任务是根据用户的具体情况，给出温暖、专业、有针对性的分析和建议。”
+        “\n\n要求：”
+        “\n1. 用第二人称'你'直接和用户说话，像朋友一样关心他们的处境”
+        “\n2. analysis 字段必须针对用户的具体事实进行分析，不要泛泛而谈”
+        “\n3. 结合检索到的重庆本地案例和法规，告诉用户他的情况在实践中通常怎么处理”
+        “\n4. recommendation 用一句话说清楚现在最该做什么”
+        “\n5. nextSteps 给出3-5个具体可操作的步骤”
+        “\n6. followUpQuestions 问用户还需要补充什么信息才能更准确判断”
+        “\n7. 不要输出胜诉保证、裁判偏向，但要给出实际有用的方向判断”
+        “\n8. 必须只输出JSON对象”
     )
-    user = "\n".join(
-        [
-            "请根据以下抽取结果和检索结果生成最终结论。",
-            "输出格式必须包含：riskLevel, confidence, handoffRequired, handoffReasons, recommendation, analysis, compensationRange, followUpQuestions, cautions, nextSteps。",
-            "riskLevel 只能是 low、medium、high。",
-            "confidence 必须是 0 到 1 之间的小数；handoffRequired 表示是否需要人工复核。",
-            "analysis 必须保留重庆本地程序路径和证据闭环判断。",
-            "cautions 必须保留“不构成法律意见”“不输出裁判偏向”等边界。",
-            "抽取结果：",
-            json.dumps(extraction, ensure_ascii=False),
-            "检索结果：",
-            json.dumps(
-                {
-                    "cases": retrieval.get("cases", []),
-                    "knowledgeDocs": retrieval.get("knowledgeDocs", []),
-                },
-                ensure_ascii=False,
-            ),
-            "本地审校基线：",
-            json.dumps(local_review, ensure_ascii=False),
-            "期望 JSON 示例：",
-            json.dumps(
-                {
-                    "riskLevel": "low",
-                    "confidence": 0.74,
-                    "handoffRequired": False,
-                    "handoffReasons": [],
-                    "recommendation": "先核对工资流水和考勤，再看是否需要直接申请仲裁。",
-                    "analysis": "系统将争议识别为“拖欠工资”。重庆本地案例参考包括……",
-                    "compensationRange": "通常优先核对欠薪金额与是否存在加付赔偿金或拖欠利息类主张。",
-                    "followUpQuestions": ["请补充入职时间。"],
-                    "cautions": [
-                        "本结果仅用于信息参考，不构成法律意见。",
-                        "重庆本地化展示应聚焦流程、公开案例和材料要求，不输出“偏向判断”。",
-                    ],
-                    "nextSteps": ["整理时间线", "保存聊天、工资和考勤记录"],
-                },
-                ensure_ascii=False,
-            ),
-        ]
-    )
+    cases_summary = []
+    for c in retrieval.get(“cases”, [])[:3]:
+        cases_summary.append(f”- {c['title']}：{c.get('holding', c.get('summary', ''))}”)
+    docs_summary = []
+    for d in retrieval.get(“knowledgeDocs”, [])[:4]:
+        docs_summary.append(f”- {d['title']}（{d.get('sourceLabel', '')}）：{d.get('summary', '')}”)
+
+    user = “\n”.join([
+        “用户的情况：”,
+        f”- 争议类型：{extraction.get('scenarioLabel', '未识别')}”,
+        f”- 事实：{'；'.join(extraction.get('facts', []))}”,
+        f”- 时间线：{'；'.join(extraction.get('timeline', []))}”,
+        f”- 现有证据：{'；'.join(extraction.get('evidence', []))}”,
+        f”- 信息缺口：{'；'.join(extraction.get('missingInfo', []))}”,
+        “”,
+        “检索到的重庆本地案例：”,
+        “\n”.join(cases_summary) if cases_summary else “暂无”,
+        “”,
+        “相关法律法规：”,
+        “\n”.join(docs_summary) if docs_summary else “暂无”,
+        “”,
+        “请输出JSON，包含以下字段：”,
+        “- riskLevel: low/medium/high（材料完整度）”,
+        “- confidence: 0-1的小数”,
+        “- recommendation: 一句话建议（现在最该做什么）”,
+        “- analysis: 2-4段话的详细分析（针对用户具体情况，结合案例和法规，像律师和当事人面对面聊天一样）”,
+        “- compensationRange: 赔偿/补偿方向提示（如适用）”,
+        “- nextSteps: 具体可操作步骤列表”,
+        “- followUpQuestions: 需要用户补充的信息”,
+        “- handoffRequired: 是否建议找线下律师（bool）”,
+        “- handoffReasons: 建议找律师的原因”,
+        “- cautions: 注意事项”,
+    ])
     return [
-        {"role": "system", "content": system},
-        {"role": "user", "content": user},
+        {“role”: “system”, “content”: system},
+        {“role”: “user”, “content”: user},
     ]
 
 
@@ -1046,6 +1046,24 @@ def merge_extraction_payload(local_extraction: dict, remote: dict) -> dict:
 def merge_review_payload(local_review: dict, remote: dict) -> dict:
     merged = dict(local_review)
     merged["sourceSummary"] = local_review.get("sourceSummary", merged.get("sourceSummary"))
+
+    if remote.get("analysis") and isinstance(remote["analysis"], str) and len(remote["analysis"]) > 20:
+        merged["analysis"] = remote["analysis"]
+    if remote.get("recommendation") and isinstance(remote["recommendation"], str):
+        merged["recommendation"] = remote["recommendation"]
+    if remote.get("nextSteps") and isinstance(remote["nextSteps"], list):
+        merged["nextSteps"] = [str(s) for s in remote["nextSteps"] if s]
+    if remote.get("followUpQuestions") and isinstance(remote["followUpQuestions"], list):
+        merged["followUpQuestions"] = [str(q) for q in remote["followUpQuestions"] if q]
+    if remote.get("compensationRange") and isinstance(remote["compensationRange"], str):
+        merged["compensationRange"] = remote["compensationRange"]
+    if remote.get("confidence") is not None:
+        try:
+            merged["confidence"] = float(remote["confidence"])
+        except (TypeError, ValueError):
+            pass
+    if remote.get("riskLevel") in ("low", "medium", "high"):
+        merged["riskLevel"] = remote["riskLevel"]
     return merged
 
 
