@@ -1,0 +1,24 @@
+{
+  "name": "重庆劳动法案例分析助手",
+  "short_name": "劳动维权",
+  "description": "免费劳动仲裁分析工具，帮助劳动者了解自己的权益",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#131b1d",
+  "theme_color": "#6fb7b2",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

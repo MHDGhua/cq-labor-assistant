@@ -1,0 +1,4 @@
+{$SERVER_NAME}, www.{$SERVER_NAME} {
+  encode gzip zstd
+  reverse_proxy 172.30.0.10:3000
+}

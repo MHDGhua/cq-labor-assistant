@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-05-12T18:32:33+08:00",
+  "executionSeconds": 88.054,
+  "status": "passed",
+  "deepseekConfigured": true,
+  "qualityGate": {
+    "status": "passed",
+    "passRate": 1.0,
+    "passed": 14,
+    "total": 14,
+    "reviewQueueCount": 6
+  },
+  "deepseekShadow": {
+    "status": "passed",
+    "remoteExecuted": true,
+    "passedCount": 2,
+    "totalCount": 2,
+    "warningCount": 0,
+    "failureCount": 0,
+    "differenceCount": 0
+  },
+  "commands": [
+    {
+      "name": "quality_gate",
+      "exitCode": 0,
+      "outputPreview": "quality gate report written to evals\\reports\\quality-gate-latest.json\nreview queue written to evals\\reports\\review-queue-latest.json\nstatus=passed passRate=100%\n"
+    },
+    {
+      "name": "deepseek_shadow",
+      "exitCode": 0,
+      "outputPreview": "local baseline passed for 2/2 cases\nDeepSeek shadow executed for 2 cases\nmachine-readable report written to evals\\reports\\deepseek-shadow-latest.json\n"
+    }
+  ],
+  "safety": {
+    "doesNotExportSecrets": true,
+    "doesNotExportRawNarratives": true,
+    "deepseekSkippedWithoutKey": true
+  }
+}

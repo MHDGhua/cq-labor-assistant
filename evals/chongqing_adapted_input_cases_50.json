@@ -1,0 +1,395 @@
+{
+  "name": "chongqing_adapted_input_cases_50",
+  "generatedAt": "2026-05-12",
+  "purpose": "输入覆盖测试。素材来自公开劳动争议典型案例，案情已改写为重庆地区测试输入，不作为真实重庆裁判结果。",
+  "adaptationPolicy": [
+    "保留争议类型、证据结构和法律问题",
+    "将地域、单位、姓名改写为重庆虚构场景",
+    "不保留真实姓名、真实公司名、精确金额和可识别个人信息",
+    "仅用于 RAG/多 agent 输入覆盖测试，不用于宣称重庆本地裁判倾向"
+  ],
+  "sources": [
+    {
+      "id": "spc-moh-2020-batch1",
+      "title": "最高人民法院、人社部劳动人事争议典型案例第一批",
+      "url": "https://www.sdcourt.gov.cn/whhcqfy/377956/377958/7385637/index.html"
+    },
+    {
+      "id": "spc-moh-2021-batch2",
+      "title": "最高人民法院、人社部劳动人事争议典型案例第二批",
+      "url": "https://www.court.gov.cn/zixun/xiangqing/319151.html"
+    },
+    {
+      "id": "spc-moh-2023-batch3",
+      "title": "最高人民法院、人社部劳动人事争议典型案例第三批",
+      "url": "https://www.court.gov.cn/zixun/xiangqing/401172.html"
+    },
+    {
+      "id": "spc-moh-2025-batch4",
+      "title": "最高人民法院、人社部劳动人事争议典型案例第四批",
+      "url": "https://www.court.gov.cn/zixun/xiangqing/462311.html"
+    },
+    {
+      "id": "henan-guancheng-2023",
+      "title": "管城法院劳动争议十大典型案例",
+      "url": "https://www.hncourt.gov.cn/public/detail.php?id=195333"
+    },
+    {
+      "id": "guangdong-court-2023",
+      "title": "广东法院劳动争议典型案例",
+      "url": "https://img.chinacourt.org/mup/uploadfile/2023/07/03/16/88779664d1fd79b15b6c67219efbc842.pdf"
+    }
+  ],
+  "cases": [
+    {
+      "id": "cq-adapt-001",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "劳动者拒绝违法超时加班安排，用人单位能否解除劳动合同",
+      "category": "overtime_unlawful_termination",
+      "adaptedNarrative": "我在重庆渝北一家快递网点上班，合同约定试用期三个月，实际要求每天早9点到晚9点、每周六天。我提出这种加班太长并拒绝继续执行，公司就说我试用期不合格，第二天把我辞退。我有排班截图、微信群通知和工资流水，想申请劳动仲裁。"
+    },
+    {
+      "id": "cq-adapt-002",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "劳动者与用人单位订立放弃加班费协议，能否主张加班费",
+      "category": "overtime_waiver",
+      "adaptedNarrative": "我在重庆九龙坡一家科技公司入职时，公司让我签了一份格式协议，里面写自愿放弃加班费。实际工作经常晚上和周末加班，离职后公司以我签过放弃协议为由拒绝支付加班费。我保存了钉钉打卡、项目群消息和那份协议。"
+    },
+    {
+      "id": "cq-adapt-003",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "用人单位未按规章制度履行加班审批手续，能否认定劳动者加班事实",
+      "category": "overtime_evidence",
+      "adaptedNarrative": "我在重庆江北一家销售公司工作，公司制度说加班要审批，但主管一直口头安排我晚上陪客户和做报表，没有走系统审批。现在我主张加班费，公司说没有审批记录就不认。我有客户拜访记录、聊天安排和深夜提交报表的记录。"
+    },
+    {
+      "id": "cq-adapt-004",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "用人单位与劳动者约定实行包薪制，是否需要依法支付加班费",
+      "category": "overtime_package_salary",
+      "adaptedNarrative": "我在重庆南岸一家设计公司做项目执行，工资写的是每月固定一口价，公司说已经包含所有加班费。实际经常连续赶方案到晚上十一点，周末也要到公司开会。我想知道包薪制是不是就不能再要加班费。"
+    },
+    {
+      "id": "cq-adapt-005",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "用人单位未与劳动者协商一致增加工作任务，劳动者是否有权拒绝",
+      "category": "workload_change",
+      "adaptedNarrative": "我在重庆沙坪坝一家电商公司做客服，原本负责一个店铺，后来公司不加工资直接让我同时负责三个店铺和售后投诉。我多次提出人手不够，公司说不服从安排就按违纪处理。现在我拒绝额外任务后被扣绩效。"
+    },
+    {
+      "id": "cq-adapt-006",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "处理加班费争议，如何分配举证责任",
+      "category": "overtime_burden_of_proof",
+      "adaptedNarrative": "我在重庆巴南一家制造企业做设备维护，两年里经常夜间抢修。公司掌握打卡和工单系统，我手里只有部分微信群通知和抢修照片。公司说我证据不完整，不同意支付加班费。我想知道仲裁时证据责任怎么分。"
+    },
+    {
+      "id": "cq-adapt-007",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "劳动者超时加班发生工伤，用工单位、劳务派遣单位是否承担连带赔偿责任",
+      "category": "dispatch_overtime_injury",
+      "adaptedNarrative": "我通过重庆一家劳务派遣公司被派到两江新区某仓储企业工作，旺季连续加班到深夜，后来搬货受伤。派遣公司和用工单位互相推责任，说工伤和加班都不是他们单独负责。我有派遣合同、排班表和医院诊断。"
+    },
+    {
+      "id": "cq-adapt-008",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "用人单位以规章制度形式否认劳动者加班事实是否有效",
+      "category": "overtime_policy_invalid",
+      "adaptedNarrative": "我在重庆渝中一家物业公司上班，公司制度写着未审批加班一律不算加班，但实际主管长期安排我节假日值班。现在公司拿制度否认所有加班。我有值班表、业主群处理记录和节假日工作照片。"
+    },
+    {
+      "id": "cq-adapt-009",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "劳动者在离职文件上签字确认加班费已结清，是否有权请求支付欠付的加班费",
+      "category": "resignation_settlement",
+      "adaptedNarrative": "我从重庆一家物流公司离职时，人事让我在离职单上签字，单子写着工资和加班费都已结清，但当时公司说不签就不给离职证明。后来我发现还有大量加班费没结。我有离职单、打卡记录和聊天记录。"
+    },
+    {
+      "id": "cq-adapt-010",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "加班费的仲裁时效应当如何认定",
+      "category": "overtime_limitation",
+      "adaptedNarrative": "我2019年开始在重庆一家建筑公司做施工管理，2023年离职。工作期间长期周末巡场，公司一直没付加班费。我现在才准备申请仲裁，公司可能会说超过时效。我有施工日志、群通知和离职时间证明。"
+    },
+    {
+      "id": "cq-adapt-011",
+      "sourceId": "spc-moh-2023-batch3",
+      "sourceCaseTitle": "如何认定网约货车司机与平台企业之间是否存在劳动关系",
+      "category": "platform_labor_relation",
+      "adaptedNarrative": "我在重庆主城给一个同城货运平台跑车，平台要求每天上线签到、至少完成固定单量，价格由平台定，迟到和拒单会扣钱。合同写的是合作关系，但收入主要靠这个平台。我现在被停号，想确认是不是劳动关系。"
+    },
+    {
+      "id": "cq-adapt-012",
+      "sourceId": "spc-moh-2023-batch3",
+      "sourceCaseTitle": "如何认定网约配送员与平台企业之间是否存在劳动关系",
+      "category": "delivery_labor_relation",
+      "adaptedNarrative": "我在重庆大学城做外卖骑手，平台每天派单、规定接单率和超时扣款，站点还安排早会和培训。合同写的是服务合作，没签劳动合同也没买社保。现在我受伤停工，平台说不是员工。"
+    },
+    {
+      "id": "cq-adapt-013",
+      "sourceId": "spc-moh-2023-batch3",
+      "sourceCaseTitle": "外卖平台用工合作企业通过劳务公司招用网约配送员，如何认定劳动关系",
+      "category": "outsourced_delivery_relation",
+      "adaptedNarrative": "我在重庆江北某外卖站点送餐，站点说我是劳务公司招的人，平台说我是合作骑手。实际上排班、奖惩、请假都由站点管理，工资也按站点规则发。我想申请确认劳动关系和未签合同赔偿。"
+    },
+    {
+      "id": "cq-adapt-014",
+      "sourceId": "spc-moh-2023-batch3",
+      "sourceCaseTitle": "劳动者注册个体工商户与平台企业或其用工合作企业订立合作协议，能否认定劳动关系",
+      "category": "platform_individual_business",
+      "adaptedNarrative": "重庆一个配送站让我先注册个体工商户，再签合作协议做骑手。实际每天必须按站点排班跑单，迟到扣钱，站长安排工作。我想知道注册成个体户后还能不能主张劳动关系。"
+    },
+    {
+      "id": "cq-adapt-015",
+      "sourceId": "spc-moh-2023-batch3",
+      "sourceCaseTitle": "如何认定网络主播与文化传播公司之间是否存在劳动关系",
+      "category": "livestream_relation",
+      "adaptedNarrative": "我在重庆一家文化传媒公司做直播，公司安排直播时间、内容脚本和绩效排名，每月按底薪加提成发钱，但合同写的是主播合作协议。现在公司无故停播并拖欠提成，我想确认劳动关系。"
+    },
+    {
+      "id": "cq-adapt-016",
+      "sourceId": "spc-moh-2023-batch3",
+      "sourceCaseTitle": "如何认定网约家政服务人员与家政公司之间是否存在劳动关系",
+      "category": "housekeeping_relation",
+      "adaptedNarrative": "我通过重庆一家家政平台接保洁单，平台规定服务流程、着装、客户评分和扣款规则，每月结算收入。平台说我是灵活接单人员，没有劳动关系。现在我因客户投诉被停单，想知道能否仲裁。"
+    },
+    {
+      "id": "cq-adapt-017",
+      "sourceId": "spc-moh-2025-batch4",
+      "sourceCaseTitle": "工伤职工能否根据诊断证明书主张延长停工留薪期",
+      "category": "work_injury_paid_leave",
+      "adaptedNarrative": "我在重庆一家城建公司工作时受伤，被认定工伤后停工留薪期满。医院又开了建议休息三个月的诊断证明，公司说必须做劳动能力鉴定才按停工留薪期工资发，否则只按病假工资。我想仲裁工资差额。"
+    },
+    {
+      "id": "cq-adapt-018",
+      "sourceId": "spc-moh-2025-batch4",
+      "sourceCaseTitle": "用人单位能否因女职工怀孕调岗降薪",
+      "category": "pregnancy_transfer_pay_cut",
+      "adaptedNarrative": "我在重庆一家商贸公司做销售主管，怀孕后公司把我调到内勤岗，工资和绩效都降了，说是照顾身体。我不同意，公司仍按新岗位发工资。我有调岗通知、孕检证明和工资条。"
+    },
+    {
+      "id": "cq-adapt-019",
+      "sourceId": "spc-moh-2025-batch4",
+      "sourceCaseTitle": "病亡职工的遗属能否以未依法缴纳社会保险费为由要求用人单位补足抚恤金",
+      "category": "social_insurance_survivor_benefit",
+      "adaptedNarrative": "我家属在重庆一家出租车公司工作多年，公司没有按实际情况足额缴纳养老保险。家属病亡后，社保待遇比应有标准低很多。我们想要求公司补足抚恤金和相关待遇差额。"
+    },
+    {
+      "id": "cq-adapt-020",
+      "sourceId": "spc-moh-2025-batch4",
+      "sourceCaseTitle": "劳动者自行承担用人单位应缴未缴的社会保险费的，用人单位应否承担赔偿责任",
+      "category": "social_insurance_self_paid",
+      "adaptedNarrative": "我在重庆一家公司上班期间，公司一直没给我缴社保。为了不影响连续缴费，我自己先按灵活就业人员缴了养老保险。现在想让公司赔偿本应由单位承担的部分，不知道能不能仲裁。"
+    },
+    {
+      "id": "cq-adapt-021",
+      "sourceId": "spc-moh-2025-batch4",
+      "sourceCaseTitle": "主体不适格，竞业限制条款是否有效",
+      "category": "non_compete_scope",
+      "adaptedNarrative": "我在重庆一家普通销售公司做基层业务员，入职合同里有竞业限制条款，离职后公司没有给补偿，却要求我两年内不能去同行。我的岗位不接触核心技术和商业秘密，想知道这个条款有没有约束力。"
+    },
+    {
+      "id": "cq-adapt-022",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "先就业再毕业，在校大学生可与用人单位建立劳动关系吗",
+      "category": "student_labor_relation",
+      "adaptedNarrative": "我在重庆一所高校大四下学期已经完成课程，到渝中一家法律咨询公司全职上班，公司发固定工资、安排考勤和工作任务，但只签了试用协议。后来公司拒绝承认劳动关系，说我还是学生。"
+    },
+    {
+      "id": "cq-adapt-023",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "诚实信用首当先，事后反悔不支持",
+      "category": "settlement_good_faith",
+      "adaptedNarrative": "我在重庆一家销售公司工作时没签劳动合同，离职时签过一份承诺书，写着自愿放弃部分主张。现在我想再要未签合同双倍工资差额，公司说我已经承诺放弃。我想知道还能不能反悔。"
+    },
+    {
+      "id": "cq-adapt-024",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "单位违法解除劳动关系，我该怎么办",
+      "category": "unlawful_termination_discipline",
+      "adaptedNarrative": "我在重庆一家连锁超市上班，门店关停后我们去另一个门店找公司沟通安置问题，公司说我扰乱秩序并发了解除通知。我认为只是维权沟通，没有严重违纪，想申请违法解除赔偿。"
+    },
+    {
+      "id": "cq-adapt-025",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "名为劳务合同也可以构成劳动关系",
+      "category": "service_contract_labor_relation",
+      "adaptedNarrative": "我在重庆一家餐饮公司做后厨，签的是劳务协议，但每天按公司排班打卡，接受店长管理，工资按月发。现在公司说我是劳务关系，不给未签劳动合同赔偿和社保。"
+    },
+    {
+      "id": "cq-adapt-026",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "关联公司间连续用工，工作年限应连续计算",
+      "category": "affiliated_company_service_years",
+      "adaptedNarrative": "我先在重庆一家物业 A 公司工作，后来被安排和关联的 B 公司签合同，岗位、地点、领导都没变。B 公司后来拖欠工资，我解除劳动关系并要求经济补偿，公司只按 B 公司期间算工龄。"
+    },
+    {
+      "id": "cq-adapt-027",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "单位不交社保应赔偿",
+      "category": "social_insurance_nonpayment",
+      "adaptedNarrative": "我在重庆一家培训机构工作两年，公司一直没有缴社保。后来我因社保断缴影响待遇，要求公司赔偿损失。公司说社保问题不属于劳动仲裁，我想知道应该怎么准备材料。"
+    },
+    {
+      "id": "cq-adapt-028",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "人事主管未签订劳动合同，请求双倍赔付不支持",
+      "category": "hr_manager_no_contract",
+      "adaptedNarrative": "我在重庆一家民营公司做人事主管，负责劳动合同和员工入职手续。自己入职后公司一直没和我签书面劳动合同，我现在离职想主张双倍工资差额。公司说我是负责人事的，责任在我。"
+    },
+    {
+      "id": "cq-adapt-029",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "员工患病未续假，违反劳动纪律被解雇",
+      "category": "sick_leave_discipline",
+      "adaptedNarrative": "我在重庆一家工厂工作，因病请假治疗，后期没有及时续交病假手续。公司以旷工和违反劳动纪律为由解除合同。我有病历和部分请假记录，想知道解除是否合法。"
+    },
+    {
+      "id": "cq-adapt-030",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "恶意调岗被辞职，违法解除应赔偿",
+      "category": "malicious_transfer_constructive_dismissal",
+      "adaptedNarrative": "我在重庆一家运营公司做文案，公司突然把我调到很远的仓库做搬运，还降薪。我不同意后，公司让我自己离职并停发绩效。我认为这是逼迫离职，想主张违法解除赔偿。"
+    },
+    {
+      "id": "cq-adapt-031",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "实行综合工时制，超时加班看过来",
+      "category": "comprehensive_working_hours",
+      "adaptedNarrative": "我在重庆一家安保公司上班，公司说岗位实行综合工时制，所以节假日和夜班都不单独算加班。实际排班经常超过周期总工时，也没有给我看过审批文件。我想确认能不能主张加班费。"
+    },
+    {
+      "id": "cq-adapt-032",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "禁止以承揽协议等方式规避用工责任",
+      "category": "contracting_disguised_labor",
+      "adaptedNarrative": "我在重庆一家铝材加工厂做锅炉工，长期在车间按班组安排生产，后来公司让我们签承揽协议，说双方不存在劳动关系。我工作时受伤后，公司以承揽关系为由不配合工伤认定。"
+    },
+    {
+      "id": "cq-adapt-033",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "年休假天数应按累计工作年限确定",
+      "category": "annual_leave_cumulative_years",
+      "adaptedNarrative": "我在重庆一家设备公司工作多年，之前在其他单位也连续工作过十几年。公司一直只按本公司工龄给我算年休假，离职时我想主张未休年休假工资差额。"
+    },
+    {
+      "id": "cq-adapt-034",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "用人单位不得以逼迫离岗等方式违法解除劳动合同",
+      "category": "forced_resignation_pay_cut",
+      "adaptedNarrative": "我在重庆一家电子公司做销售，公司把岗位津贴改成考核工资后直接降为零，还把我移出工作群，后来口头说不用来了。我有工资条、微信群截图和客户沟通记录。"
+    },
+    {
+      "id": "cq-adapt-035",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "用人单位不得以劳务派遣协议期满为由解除劳动合同",
+      "category": "dispatch_agreement_expiry",
+      "adaptedNarrative": "我和重庆一家劳务服务公司签劳动合同，被派到通信公司工作。派遣协议到期后，劳务公司让我改签新单位或协商解除，我不同意后就被解除劳动合同。我想主张违法解除赔偿。"
+    },
+    {
+      "id": "cq-adapt-036",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "依法制裁职业碰瓷行为",
+      "category": "bad_faith_litigation",
+      "adaptedNarrative": "我在重庆短期入职多家公司，每次都因工资确认、解除手续等问题申请仲裁。现在某家具厂称我伪造工资确认材料并恶意诉讼。我想测试系统如何识别证据真实性和诚信诉讼风险。"
+    },
+    {
+      "id": "cq-adapt-037",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "快递小哥自带车辆的油耗未约定的由公司负担",
+      "category": "courier_vehicle_cost",
+      "adaptedNarrative": "我在重庆一家快递公司做接驳员，自带面包车跑线路。公司长期没有足额支付工资，也没有约定车辆油耗谁承担，后来因换车要求发生争议离职。我想主张工资差额、经济补偿和车辆油耗。"
+    },
+    {
+      "id": "cq-adapt-038",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "用人单位应正确计付疫情期间停工停产的工资及生活费",
+      "category": "shutdown_wage_living_expense",
+      "adaptedNarrative": "我在重庆一家餐饮店做点心师，门店因经营原因通知停工，停工期间只发了很少生活费，后来又解除合同。我想核对停工第一个月工资、后续生活费和解除赔偿。"
+    },
+    {
+      "id": "cq-adapt-039",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "拒不支付劳动报酬案件",
+      "category": "wage_arrears_criminal_risk",
+      "adaptedNarrative": "我和几名工友在重庆一个装修项目干活，包工负责人一直拖欠工资，多次承诺付款但没有兑现。我们有考勤、工友名单、工资结算单和催款聊天记录，想知道劳动仲裁和拒不支付劳动报酬风险怎么处理。"
+    },
+    {
+      "id": "cq-adapt-040",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "劳务派遣用工责任争议",
+      "category": "dispatch_liability",
+      "adaptedNarrative": "我通过重庆一家派遣公司到制造企业上班，工资由派遣公司发，用工单位安排排班和考核。发生欠薪和解除争议后，两个单位互相推责任。我想知道仲裁时该把谁列为被申请人。"
+    },
+    {
+      "id": "cq-adapt-041",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "疫情防控期间工资待遇争议",
+      "category": "pandemic_wage",
+      "adaptedNarrative": "我在重庆一家酒店工作，疫情防控期间公司安排停工，前一个月没有按正常工资发，后面也没有说明生活费标准。现在我准备仲裁工资差额和解除补偿。"
+    },
+    {
+      "id": "cq-adapt-042",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "企业停工停产期间劳动报酬争议",
+      "category": "shutdown_wage",
+      "adaptedNarrative": "我在重庆一家汽配企业上班，公司因订单减少连续停产两个月，只发了很低补贴，之后要求我们签待岗协议。我想知道停工停产期间工资和生活费该怎么主张。"
+    },
+    {
+      "id": "cq-adapt-043",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "未依法订立书面劳动合同争议",
+      "category": "no_written_contract",
+      "adaptedNarrative": "我在重庆一家便利店工作满九个月，公司一直没有签书面劳动合同，工资通过老板个人微信转账，排班在店长群里发。我想主张未签合同双倍工资差额。"
+    },
+    {
+      "id": "cq-adapt-044",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "最低工资标准适用争议",
+      "category": "minimum_wage",
+      "adaptedNarrative": "我在重庆一家保洁公司工作，公司扣除社保和各种费用后实际到手低于当地最低工资标准，还说包吃住可以抵工资。我想知道能不能要求补足工资差额。"
+    },
+    {
+      "id": "cq-adapt-045",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "解除协议显失公平争议",
+      "category": "unfair_settlement",
+      "adaptedNarrative": "我在重庆一家教育机构离职时，公司让我签解除协议，只支付很少补偿，并写明双方再无争议。当时我急着拿离职证明和工资。现在发现补偿明显偏低，想知道能否撤销或继续主张。"
+    },
+    {
+      "id": "cq-adapt-046",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "培训服务期与违约金争议",
+      "category": "training_service_period",
+      "adaptedNarrative": "我在重庆一家医疗器械公司入职后参加了公司安排的专项培训，合同约定服务期和违约金。后来我因公司拖欠工资提出离职，公司反过来要求我赔培训违约金。"
+    },
+    {
+      "id": "cq-adapt-047",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "劳动者因用人单位欠薪解除合同并主张经济补偿",
+      "category": "wage_arrears_resignation_compensation",
+      "adaptedNarrative": "我在重庆一家软件公司工作，公司连续三个月延迟发工资。我发函要求补发无果后提出解除劳动合同，准备仲裁拖欠工资和经济补偿。"
+    },
+    {
+      "id": "cq-adapt-048",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "违法解除与赔偿金争议",
+      "category": "unlawful_termination",
+      "adaptedNarrative": "我在重庆一家广告公司工作两年，公司没有提前通知，也没有说明制度依据，直接口头通知我明天不用来了。我有聊天记录、工资流水和考勤记录，想申请违法解除赔偿金。"
+    },
+    {
+      "id": "cq-adapt-049",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "女职工特殊保护争议",
+      "category": "female_employee_protection",
+      "adaptedNarrative": "我在重庆一家母婴公司上班，怀孕后公司取消我的绩效并要求转岗，还暗示如果不能适应就自己离职。我保存了调岗通知、工资条和孕检材料。"
+    },
+    {
+      "id": "cq-adapt-050",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "用人单位未依法缴纳社会保险导致待遇损失争议",
+      "category": "social_insurance_loss",
+      "adaptedNarrative": "我在重庆一家机械公司工作多年，公司一直按最低基数缴社保，实际工资明显更高。后来我办理相关待遇时发现待遇受影响，想要求公司承担差额损失。"
+    }
+  ]
+}

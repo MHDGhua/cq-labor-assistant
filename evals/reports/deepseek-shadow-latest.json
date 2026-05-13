@@ -1,0 +1,133 @@
+{
+  "generatedAt": "2026-05-12T18:34:01+08:00",
+  "startedAt": "2026-05-12T18:32:33+08:00",
+  "finishedAt": "2026-05-12T18:34:01+08:00",
+  "executionSeconds": 87.529,
+  "sampleCount": 2,
+  "limitApplied": 2,
+  "deepseekConfigured": true,
+  "remoteExecuted": true,
+  "status": "passed",
+  "scriptWarnings": [],
+  "local": {
+    "passedCount": 2,
+    "totalCount": 2,
+    "failures": [],
+    "warnings": []
+  },
+  "remote": {
+    "passedCount": 2,
+    "totalCount": 2,
+    "failures": [],
+    "warnings": []
+  },
+  "comparisons": {
+    "differenceCount": 0,
+    "differences": []
+  },
+  "statistics": {
+    "allRuns": {
+      "runCount": 4,
+      "providerModes": {
+        "local": 2,
+        "deepseek": 2
+      },
+      "models": {
+        "deepseek-v4-pro": 4
+      },
+      "riskLevels": {
+        "low": 4
+      },
+      "citations": {
+        "min": 3,
+        "max": 3,
+        "average": 3.0,
+        "distribution": {
+          "3": 4
+        }
+      }
+    },
+    "local": {
+      "runCount": 2,
+      "providerModes": {
+        "local": 2
+      },
+      "models": {
+        "deepseek-v4-pro": 2
+      },
+      "riskLevels": {
+        "low": 2
+      },
+      "citations": {
+        "min": 3,
+        "max": 3,
+        "average": 3.0,
+        "distribution": {
+          "3": 2
+        }
+      }
+    },
+    "remote": {
+      "runCount": 2,
+      "providerModes": {
+        "deepseek": 2
+      },
+      "models": {
+        "deepseek-v4-pro": 2
+      },
+      "riskLevels": {
+        "low": 2
+      },
+      "citations": {
+        "min": 3,
+        "max": 3,
+        "average": 3.0,
+        "distribution": {
+          "3": 2
+        }
+      }
+    }
+  },
+  "samples": [
+    {
+      "caseId": "eval-wage-clear-jlp",
+      "local": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "riskLevel": "low",
+        "citationCount": 3,
+        "qualityFlags": [
+          "本地规则引擎回退"
+        ]
+      },
+      "remote": {
+        "providerMode": "deepseek",
+        "model": "deepseek-v4-pro",
+        "riskLevel": "low",
+        "citationCount": 3,
+        "qualityFlags": []
+      },
+      "comparisonDiffs": []
+    },
+    {
+      "caseId": "eval-wage-deduction-yuzhong",
+      "local": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "riskLevel": "low",
+        "citationCount": 3,
+        "qualityFlags": [
+          "本地规则引擎回退"
+        ]
+      },
+      "remote": {
+        "providerMode": "deepseek",
+        "model": "deepseek-v4-pro",
+        "riskLevel": "low",
+        "citationCount": 3,
+        "qualityFlags": []
+      },
+      "comparisonDiffs": []
+    }
+  ]
+}

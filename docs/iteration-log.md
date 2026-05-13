@@ -1,0 +1,103 @@
+# 迭代记录
+
+## 2026-05-13
+
+- 生产落地最终完成：服务器 `new-project` 已替换为当前项目，`tinko.xin` 与 `www.tinko.xin` 已重新上线，`/api/healthz`、`/manage` 和真实案情分析链路均已回归通过。
+- 服务器 Docker 容器内存在 DNS/registry 解析不稳定问题，前端已改为“复用 Linux `node_modules` 后在服务器本地预构建 `.next`”的运行时打包方案，避免后续发布再次被容器联网安装依赖卡住。
+- `Dockerfile.frontend` 已改为纯运行时镜像，`docs/deployment.md` 已补充这条发布路径，后续二次部署直接按 Runbook 执行即可。
+- 公网稳定演示收口：新增 `docs/public-demo.md`，明确 Caddy/Next/FastAPI/Postgres 拓扑、`SERVER_NAME`、公网 smoke、演示角色、发布门禁和故障处理。
+- README 与部署说明补齐公网访问路径、生产 Compose、只读/可写管理角色、`/api/healthz` smoke、后端不直接公网暴露和 release-check 门禁说明。
+- `.env.example` 增加 `SERVER_NAME`、`SMOKE_BASE_URL`、`SMOKE_ADMIN_TOKEN`，便于公网演示和管理页 smoke 使用同一套示例变量。
+- `scripts/release-check.py` 增强公网演示门禁：纳入生产 Compose config、Caddyfile、`/healthz`、后端本机绑定、角色文档和公网 Runbook 静态检查。
+- 下一阶段继续按“大模型应用开发”落地：补齐生产级评测集、低置信度转人工复核和 `/manage` 生产信号展示，确保项目在简历演示之外也具备持续迭代的门禁。
+- 新增 `evals/chongqing_production_eval_cases.json`，单独承载生产落地评测样本，重点覆盖“回答质量保护、低置信度手动复核、重庆语境保守输出”和高风险案情手工交接。
+- 新增 `npm run evals:production` 和 `scripts/production-eval-gate.py`，输出独立的生产评测报告、复盘队列和低置信度/人工复核计数，避免和基础固定评测混用。
+- `ReviewResult`、`TraceSummary` 和公共结果现在统一携带 `confidence / confidenceLabel / handoffRequired / handoffReasons`，前后端和历史数据都能看到“是否需要人工复核”的同一信号。
+- `/manage` 的 Quality Gate 区域开始展示生产评测状态、低置信度数量、人工复核数量和前 4 条复盘样本，但仍不展开原始案情或内部推理链。
+- `npm run release:check` 继续按发布门禁执行，但新增了生产评测与生产评测报告输出，确保上线前不会只看基础固定评测。
+
+## 2026-05-12
+
+- 生产域名无法从公网访问时，抓包确认 `80/443` 的公网 `SYN` 已到宿主机并被 DNAT 到 Caddy 容器，但回包链路卡在 `Docker bridge + UFW` 转发层。
+- 为绕开宿主机转发冲突，生产 Compose 改为独立完整定义：`caddy` 使用 `network_mode: host`，前后端和数据库使用固定 Docker 内网地址，生产反代目标固定为前端容器内网 IP `172.30.0.10:3000`，不再依赖 Docker bridge 的公网转发或 `docker-proxy` 本地端口转发。
+- 首页分析结果新增缺失事实追问：根据入职时间、争议金额、解除理由、合同签订情况及具体争议类型生成最多 4 条补充问题，仍不展示内部推理链。
+- 前后端公共结果、Markdown/JSON 导出、后端 API schema 和固定测试同步增加 `followUpQuestions` 字段。
+- `scripts/adapted-input-review.py` 新增追问覆盖检查：当 trace 存在关键事实缺口但结果没有追问时标记 `missing_follow_up_questions`，并在 `/manage` Quality Gate 卡片展示追问缺口计数。
+- 新增 `evals/chongqing_adapted_input_cases_50.json`：从最高法/人社部及地方法院公开劳动争议典型案例中整理 50 条测试输入，并改写为重庆地区虚构案情；数据集明确标注“改写/迁移到重庆场景”，不宣称为真实重庆裁判案例。
+- 新增 `tests/adapted-input-cases.test.ts` 与 `npm run evals:adapted`，逐条验证 50 个改写输入可以通过公共分析链路，并检查不输出胜诉保证、裁判偏向或内部推理内容。
+- 新增 `scripts/adapted-input-review.py` 与 `npm run evals:adapted-review`，为 50 条改写输入生成安全通过率、警告类型、场景分布和复盘队列报告。
+- 场景识别从 4 类扩展到 11 类：拖欠工资、违法解除、未签合同、加班工时、劳动关系认定、社会保险、工伤待遇、女职工保护、竞业限制、工资福利/休假和混合争议。
+- 素材种子补充加班、新就业形态劳动关系、社保、工伤、女职工保护、竞业限制和工资福利类公开参考案例，并在回答文案中明确为“重庆本地/公开参考案例”，避免把外地公开案例包装成真实重庆裁判。
+- `/manage` 的 Quality Gate 卡片现在会展示 50 条改写输入复盘摘要和前 4 条复盘队列；`npm run release:check` 已纳入 `evals:adapted` 与 `evals:adapted-review`。
+- 生产监控补齐：后端新增 `GET /healthz`，`GET /health` 保留兼容；健康响应包含数据库可达性、案例数、启用法源数、反馈数、审计数、provider、model、密钥是否配置和脱敏数据库标签。
+- 前端新增 `/api/healthz` 代理，`/manage` 增加生产健康卡，并把健康状态纳入上线运营判断。
+- 首页结果页新增 Markdown/JSON 复制与下载，只导出公开结论、建议、边界和少量引用，不导出内部推理链或案例库全文。
+- `/manage` 新增运营快照 Markdown/JSON 导出，只包含健康、运行态、反馈、历史摘要和审计动作摘要，不导出素材全文或用户完整案情。
+- 新增 `scripts/eval-quality-gate.py` 与 `npm run evals:quality`，按场景、风险、引用、重庆路径、安全边界和三 agent 契约生成质量门禁报告。
+- 质量门禁会写出 `evals/reports/quality-gate-latest.json`、`quality-gate-latest.md` 和 `review-queue-latest.json`，用于上线前复盘低置信、边界和素材缺口样本。
+- 新增 `scripts/model-shadow-gate.py` 与 `npm run evals:shadow`，自动串联本地质量门禁和 DeepSeek 小样本 shadow eval，输出 `model-shadow-gate-latest.json/.md`。
+- `/manage` 新增 Quality Gate 卡片，展示质量门禁通过率、复盘队列和 DeepSeek shadow 差异摘要。
+- 新增 `scripts/release-check.py` 与 `npm run release:check`，串联类型检查、固定评测、质量门禁、单测、生产构建、后端编译和 Compose 配置检查。
+- 新增 `scripts/review-queue-to-eval-drafts.py` 与 `npm run evals:drafts`，把复盘队列转成匿名化评测草稿，便于人工补充后回流到评测集。
+- `/manage` 的 Quality Gate 卡片现在同时展示 Release Gate 摘要，作为灰度/上线前门槛。
+- 文档与上线 Runbook 补强：README 增加生产落地速查，部署文档补齐 DeepSeek API 环境变量、`.env.local` 密钥放置规则、Docker Compose 演练、SQLite/PostgreSQL fallback 边界、`/healthz` 健康检查判读、上线前验证清单和故障处理。
+- 补充“案例导入 -> 首页分析 -> 用户反馈 -> `/manage` 复盘 -> 导出评测候选 -> 补素材/评测集 -> 重新评测”的闭环说明，便于生产迭代和简历复盘展示。
+- 产品化继续推进：新增 `ADMIN_VIEW_TOKEN` 只读管理口令，读接口允许只读账号访问，素材导入/删除仍必须使用 `ADMIN_TOKEN`。
+- 新增 `audit_logs` 审计表、后端 `GET /audit-logs`、前端 `/api/audit-logs` 代理和 `/manage` 审计日志卡，管理端读写动作会留痕。
+- 新增 `scripts/feedback-to-eval-candidates.py`，把后端反馈摘要 JSON 或本地评测报告转换为可人工补充的评测候选模板，默认写入 `evals/reports/feedback-eval-candidates.json`。
+- 反馈候选导出脚本不读取 `.env` 或密钥文件，不导出原始长文本；用户备注仅保留短预览和哈希摘要，便于“反馈 -> 补案例 -> 再评测”闭环。
+- 新增受 `ADMIN_TOKEN` 保护的 `/runtime` 运行态接口，只返回 provider、模型、超时、是否配置密钥、本地回退、agent 数量、agent 标签和脱敏后的数据库连接串。
+- `/manage` 现在在历史监控之外还会展示运行态摘要，方便演示时直接确认当前是本地模式还是 DeepSeek 模式。
+- Python 后端和 DeepSeek shadow 评测脚本现在会读取项目根目录 `.env.local`，但不会覆盖已经显式设置的环境变量。
+- DeepSeek shadow 评测脚本现在会在执行时输出机器可读 JSON 报告，默认落到 `evals/reports/deepseek-shadow-latest.json`。
+- 报告会记录执行时间、样本数、DeepSeek 是否配置、local/remote 的失败与 warning、比较差异，以及 provider/model/risk/citation 统计。
+- 这个报告面向简历展示和迭代复盘使用，不写入任何密钥或原始敏感内容。
+- 新增用户反馈闭环：公开 `POST /feedback` 记录单次分析是否有用，管理端 `GET /feedback/summary` 和 `/manage` 反馈卡用于持续补案例、调检索和扩展评测样本。
+- 后端测试环境显式锁定 `AI_PROVIDER=local`，避免单测读取 `.env.local` 后误调真实 DeepSeek API。
+
+## 2026-05-11
+
+- 本轮按大模型应用开发顺序继续推进后两阶段：阶段三做生产硬化，阶段四做持续评测与运行监控。
+- 运行时已切到 DeepSeek OpenAI-compatible provider：支持 `AI_PROVIDER=local|deepseek`、`DEEPSEEK_API_KEY`、`DEEPSEEK_MODEL`、`DEEPSEEK_BASE_URL`、`DEEPSEEK_REASONING_EFFORT` 和 `AI_TRACE`。
+- 新增 `scripts/deepseek-shadow-eval.py` 与 `npm run evals:deepseek`，可在有密钥时跑 DeepSeek 影子评测，对比本地基线和远程结果。
+- 新增 DeepSeek 调用稳态化：支持 `DEEPSEEK_TIMEOUT_SECONDS`，并在 optional `thinking` / `reasoning_effort` 被拒时自动退回到精简请求。
+- 补了 DeepSeek 客户端单测，覆盖 JSON 抽取和 optional 参数重试路径，避免真实 provider 变动导致回归。
+- 首次接入真实 DeepSeek 影子评测后，发现远程模型会改写场景标签和风险等级；已改为“本地规则定锚、DeepSeek 只增强”的保守合并策略。
+- `DEEPSEEK_SHADOW_LIMIT=2 npm run evals:deepseek` 已跑通真实 DeepSeek smoke，避免一次性全量调用造成不必要的 API 消耗。
+- 完整 14 条 DeepSeek 影子评测已执行，公开答案质量全部对齐；个别 DeepSeek 审校未采纳时改为 warning，表示系统按预期安全回退。
+- 新增三 agent trace 摘要：provider、模型、推理强度、agent 链路、命中素材数量、引用数量、缺失信息和质量标记都可被历史接口复盘。
+- `/api/history` 不再在后端失败时静默返回空数组，而是返回 `source: unavailable` 和明确错误信息，避免把故障误判为没有历史。
+- `/manage` 新增内部 History & Trace 监控面板，管理员可查看最近分析历史、风险分布、provider 模式和质量标记；普通首页仍只展示最终结论。
+- `npm run smoke:manage` 增加历史接口不可用状态校验，配合已有素材本地回退校验形成上线前护栏。
+- 本轮进入评测驱动迭代与上线前加固阶段，优先补 `/manage` 的浏览器级 smoke 护栏。
+- `/api/cases` 与 `/api/knowledge-docs` 现在会返回 `source`，用于区分后端素材与本地缓存回退。
+- `/manage` 会展示“后端素材”或“本地回退”状态，避免后端不可用时误以为仍连着数据库。
+- 新增 `npm run smoke:manage`，通过 Playwright CLI 验证错误口令拦截、正确口令解锁、本地缓存回退、案例导入和删除。
+- 已实际跑通 `npm run smoke:manage`，确认 `/manage` 的本地缓存回退链路在前端单独启动时可用。
+- 按大模型开发顺序补齐第一阶段：新增 `evals/chongqing_labor_eval_cases.json` 与 `npm run evals`，覆盖典型争议、混合争议、未知场景和诱导输出样本。
+- 按大模型开发顺序补齐第二阶段：抽出三 agent 契约和 provider 配置，默认无 DeepSeek 密钥时继续走本地规则引擎。
+- 收紧未知场景检索：无法识别争议类型时不再返回具体案例，只在有劳动上下文时返回少量法源引用，避免无关案例误导。
+- 本轮完整验证已通过：`npm run evals`、`npm run test:all`、`npm run build`、`python -m compileall backend`。
+- 本轮文档明确项目定位为可演示的简历项目：前端对话式展示，后端内部多 agent 推理，首页不展示全量案例库。
+- 补充 `/manage` 作为内部素材入口的说明，明确案例和知识文档都支持 CSV/JSON 批量粘贴或上传导入。
+- 新增 `/manage`、素材 API 和历史 API 的 `ADMIN_TOKEN` 轻量保护；公开分析入口保持可访问。
+- 新增回答质量固定评测集，覆盖拖欠工资、违法解除、未签合同和混合争议。
+- 新增 11 条重庆劳动争议案例种子数据，并同步前端 fallback 与后端 seed。
+- 批量导入现在使用稳定 ID 生成规则，未提供 `id` 时重复导入会更新同一条素材，不会产生重复记录。
+- 补充数据库运行边界：PostgreSQL 优先，未设置 `DATABASE_URL` 时自动回退到 SQLite `law.db`。
+- 补充 Docker Compose 一键启动说明，完整栈可通过 `docker compose up --build` 启动前端、后端和 PostgreSQL。
+- 补充 Docker Compose healthcheck，并把后端镜像中的知识文档种子数据路径一并打包，避免一键启动时依赖缺失。
+- 搭建重庆劳动法案情分析助手最小可运行版本。
+- 本轮方向收敛为对话式、内部多 Agent、RAG 重庆劳动法知识库。
+- 案例与官方法源统一作为内部检索素材入库，前端仅展示摘要、引用和分析结果，不做全量公开。
+- 首页已改成对话式结果页，内部执行轨迹不再对普通用户展开。
+- 已完成构建与测试验证：`npm run test:all`、`npm run build`、`python -m compileall backend`，并抽样验证后端 `/analyze` 返回 200 且包含知识检索结果。
+- 本轮继续补齐了知识文档导入/更新/删除管道，并把 `/manage` 扩展为案例与知识文档双素材管理页。
+- 新增知识文档相关 API：`GET /knowledge-docs`、`POST /knowledge-docs/import`、`DELETE /knowledge-docs/{doc_id}`。
+- 补充输入清洗、长度限制、测试和生产构建。
+- 新增执行轨迹展示与结构化结论复制功能。
+- 新增 Markdown 报告下载，方便面试演示时导出结果。
+- 新增历史分析留存与案例管理页，支持本地筛选和 JSON 导入。
+- 新增 FastAPI 后端、数据库模型、案例/分析/历史接口和 PostgreSQL 部署配置。
+- 完成前端 API 代理、主页案例库后端化、后端集成测试和完整构建验证。
+- 补充 Dockerfile、`docker compose` 全栈启动方案和部署说明。

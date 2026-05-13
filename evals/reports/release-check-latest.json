@@ -1,0 +1,173 @@
+{
+  "generatedAt": "2026-05-13T11:58:26+08:00",
+  "durationSeconds": 58.374,
+  "status": "passed",
+  "checks": [
+    {
+      "name": "typescript",
+      "command": "npx tsc --noEmit",
+      "required": true,
+      "exitCode": 0,
+      "durationSeconds": 4.72,
+      "outputPreview": "",
+      "status": "passed"
+    },
+    {
+      "name": "fixed_evals",
+      "command": "npm run evals",
+      "required": true,
+      "exitCode": 0,
+      "durationSeconds": 2.554,
+      "outputPreview": "\n> cq-labor-law-assistant@0.1.0 evals\n> vitest run tests/evals.test.ts\n\n\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv3.1.4 \u001b[39m\u001b[90mD:/HuaweiMoveData/Users/别碰我的电脑/Documents/New project\u001b[39m\n\n \u001b[32m✓\u001b[39m tests/evals.test.ts \u001b[2m(\u001b[22m\u001b[2m28 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 37\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m1 passed\u001b[39m\u001b[22m\u001b[90m (1)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m28 passed\u001b[39m\u001b[22m\u001b[90m (28)\u001b[39m\n\u001b[2m   Start at \u001b[22m 11:58:33\n\u001b[2m   Duration \u001b[22m 1.04s\u001b[2m (transform 183ms, setup 0ms, collect 225ms, tests 37ms, environment 0ms, prepare 265ms)\u001b[22m\n\n",
+      "status": "passed"
+    },
+    {
+      "name": "production_evals",
+      "command": "npm run evals:production",
+      "required": true,
+      "exitCode": 0,
+      "durationSeconds": 2.58,
+      "outputPreview": "\n> cq-labor-law-assistant@0.1.0 evals:production\n> vitest run tests/production-evals.test.ts\n\n\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv3.1.4 \u001b[39m\u001b[90mD:/HuaweiMoveData/Users/别碰我的电脑/Documents/New project\u001b[39m\n\n \u001b[32m✓\u001b[39m tests/production-evals.test.ts \u001b[2m(\u001b[22m\u001b[2m12 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 17\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m1 passed\u001b[39m\u001b[22m\u001b[90m (1)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m12 passed\u001b[39m\u001b[22m\u001b[90m (12)\u001b[39m\n\u001b[2m   Start at \u001b[22m 11:58:35\n\u001b[2m   Duration \u001b[22m 954ms\u001b[2m (transform 137ms, setup 0ms, collect 176ms, tests 17ms, environment 0ms, prepare 240ms)\u001b[22m\n\n",
+      "status": "passed"
+    },
+    {
+      "name": "adapted_input_evals",
+      "command": "npm run evals:adapted",
+      "required": true,
+      "exitCode": 0,
+      "durationSeconds": 3.019,
+      "outputPreview": "\n> cq-labor-law-assistant@0.1.0 evals:adapted\n> vitest run tests/adapted-input-cases.test.ts\n\n\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv3.1.4 \u001b[39m\u001b[90mD:/HuaweiMoveData/Users/别碰我的电脑/Documents/New project\u001b[39m\n\n \u001b[32m✓\u001b[39m tests/adapted-input-cases.test.ts \u001b[2m(\u001b[22m\u001b[2m2 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 38\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m1 passed\u001b[39m\u001b[22m\u001b[90m (1)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m2 passed\u001b[39m\u001b[22m\u001b[90m (2)\u001b[39m\n\u001b[2m   Start at \u001b[22m 11:58:38\n\u001b[2m   Duration \u001b[22m 1.07s\u001b[2m (transform 148ms, setup 0ms, collect 188ms, tests 38ms, environment 0ms, prepare 305ms)\u001b[22m\n\n",
+      "status": "passed"
+    },
+    {
+      "name": "adapted_input_review",
+      "command": "npm run evals:adapted-review",
+      "required": true,
+      "exitCode": 0,
+      "durationSeconds": 1.212,
+      "outputPreview": "\n> cq-labor-law-assistant@0.1.0 evals:adapted-review\n> python scripts/adapted-input-review.py\n\nadapted input review written to evals\\reports\\adapted-input-review-latest.json\nstatus=passed safe=50/50 warnings=40\n",
+      "status": "passed"
+    },
+    {
+      "name": "quality_gate",
+      "command": "npm run evals:quality",
+      "required": true,
+      "exitCode": 0,
+      "durationSeconds": 1.089,
+      "outputPreview": "\n> cq-labor-law-assistant@0.1.0 evals:quality\n> python scripts/eval-quality-gate.py\n\nquality gate report written to evals\\reports\\quality-gate-latest.json\nreview queue written to evals\\reports\\review-queue-latest.json\nstatus=passed passRate=100%\n",
+      "status": "passed"
+    },
+    {
+      "name": "production_eval_report",
+      "command": "npm run evals:production-report",
+      "required": true,
+      "exitCode": 0,
+      "durationSeconds": 1.233,
+      "outputPreview": "\n> cq-labor-law-assistant@0.1.0 evals:production-report\n> python scripts/production-eval-gate.py\n\nproduction eval report written to evals\\reports\\production-eval-latest.json\nstatus=passed passRate=100%\n",
+      "status": "passed"
+    },
+    {
+      "name": "tests",
+      "command": "npm run test:all",
+      "required": true,
+      "exitCode": 0,
+      "durationSeconds": 9.041,
+      "outputPreview": "pm run test:backend\n\n\n> cq-labor-law-assistant@0.1.0 test\n> vitest run\n\n\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv3.1.4 \u001b[39m\u001b[90mD:/HuaweiMoveData/Users/别碰我的电脑/Documents/New project\u001b[39m\n\n \u001b[32m✓\u001b[39m tests/admin-auth.test.ts \u001b[2m(\u001b[22m\u001b[2m6 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 25\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m tests/material-import.test.ts \u001b[2m(\u001b[22m\u001b[2m6 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 16\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m tests/rate-limit.test.ts \u001b[2m(\u001b[22m\u001b[2m5 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 19\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m tests/case-seeds.test.ts \u001b[2m(\u001b[22m\u001b[2m2 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 7\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m tests/analysis.test.ts \u001b[2m(\u001b[22m\u001b[2m9 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 19\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m tests/production-evals.test.ts \u001b[2m(\u001b[22m\u001b[2m12 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 21\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m tests/evals.test.ts \u001b[2m(\u001b[22m\u001b[2m28 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 41\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m tests/adapted-input-cases.test.ts \u001b[2m(\u001b[22m\u001b[2m2 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 54\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m tests/agent-workflow.test.ts \u001b[2m(\u001b[22m\u001b[2m2 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 10\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m9 passed\u001b[39m\u001b[22m\u001b[90m (9)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m72 passed\u001b[39m\u001b[22m\u001b[90m (72)\u001b[39m\n\u001b[2m   Start at \u001b[22m 11:58:45\n\u001b[2m   Duration \u001b[22m 2.61s\u001b[2m (transform 1.50s, setup 0ms, collect 2.66s, tests 211ms, environment 4ms, prepare 4.24s)\u001b[22m\n\n\n> cq-labor-law-assistant@0.1.0 test:backend\n> python -m unittest discover backend/tests\n\n..................................\n----------------------------------------------------------------------\nRan 34 tests in 0.581s\n\nOK\n",
+      "status": "passed"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "required": true,
+      "exitCode": 0,
+      "durationSeconds": 31.674,
+      "outputPreview": "ic pages (0/16) ...\n   Generating static pages (4/16) \n   Generating static pages (8/16) \n   Generating static pages (12/16) \n ✓ Generating static pages (16/16)\n   Finalizing page optimization ...\n   Collecting build traces ...\n\nRoute (app)                                 Size  First Load JS\n┌ ○ /                                     8.8 kB         115 kB\n├ ○ /_not-found                            995 B         103 kB\n├ ƒ /api/analyze                           154 B         103 kB\n├ ƒ /api/audit-logs                        154 B         103 kB\n├ ƒ /api/cases                             154 B         103 kB\n├ ƒ /api/cases/[id]                        154 B         103 kB\n├ ƒ /api/cases/custom                      154 B         103 kB\n├ ƒ /api/eval-quality                      154 B         103 kB\n├ ƒ /api/feedback                          154 B         103 kB\n├ ƒ /api/feedback/summary                  154 B         103 kB\n├ ƒ /api/healthz                           154 B         103 kB\n├ ƒ /api/history                           154 B         103 kB\n├ ƒ /api/knowledge-docs                    154 B         103 kB\n├ ƒ /api/knowledge-docs/[id]               154 B         103 kB\n├ ƒ /api/runtime                           154 B         103 kB\n└ ○ /manage                              22.7 kB         129 kB\n+ First Load JS shared by all             102 kB\n  ├ chunks/255-4f84124391a7dac4.js       46.2 kB\n  ├ chunks/4bd1b696-c023c6e3521b1417.js  54.2 kB\n  └ other shared chunks (total)          1.99 kB\n\n\n○  (Static)   prerendered as static content\nƒ  (Dynamic)  server-rendered on demand\n\n",
+      "status": "passed"
+    },
+    {
+      "name": "python_compile",
+      "command": "python -m compileall backend scripts",
+      "required": true,
+      "exitCode": 0,
+      "durationSeconds": 0.191,
+      "outputPreview": "Listing 'backend'...\nListing 'backend\\\\tests'...\nListing 'scripts'...\n",
+      "status": "passed"
+    },
+    {
+      "name": "compose_config",
+      "command": "docker compose config",
+      "required": true,
+      "exitCode": 0,
+      "durationSeconds": 0.529,
+      "outputPreview": "networks:\n      default: null\n    ports:\n      - mode: ingress\n        target: 8000\n        published: \"8000\"\n        protocol: tcp\n  frontend:\n    build:\n      context: D:\\HuaweiMoveData\\Users\\别碰我的电脑\\Documents\\New project\n      dockerfile: Dockerfile.frontend\n    depends_on:\n      backend:\n        condition: service_healthy\n        required: true\n    environment:\n      ADMIN_EDITOR_TOKEN: dev-editor-token\n      ADMIN_TOKEN: dev-admin-token\n      ADMIN_VIEW_TOKEN: dev-view-token\n      AI_PROVIDER: local\n      AI_TRACE: \"false\"\n      BACKEND_URL: http://backend:8000\n      DEEPSEEK_API_KEY: \"\"\n      DEEPSEEK_BASE_URL: https://api.deepseek.com\n      DEEPSEEK_MODEL: deepseek-v4-pro\n      DEEPSEEK_REASONING_EFFORT: medium\n      DEEPSEEK_TIMEOUT_SECONDS: \"45\"\n    networks:\n      default: null\n    ports:\n      - mode: ingress\n        target: 3000\n        published: \"3000\"\n        protocol: tcp\n  postgres:\n    environment:\n      POSTGRES_DB: law_assistant\n      POSTGRES_PASSWORD: law_password\n      POSTGRES_USER: law\n    healthcheck:\n      test:\n        - CMD-SHELL\n        - pg_isready -U law -d law_assistant\n      timeout: 5s\n      interval: 10s\n      retries: 10\n      start_period: 20s\n    image: postgres:16-alpine\n    networks:\n      default: null\n    ports:\n      - mode: ingress\n        target: 5432\n        published: \"5432\"\n        protocol: tcp\n    volumes:\n      - type: volume\n        source: postgres-data\n        target: /var/lib/postgresql/data\n        volume: {}\nnetworks:\n  default:\n    name: newproject_default\nvolumes:\n  postgres-data:\n    name: newproject_postgres-data\n",
+      "status": "passed"
+    },
+    {
+      "name": "prod_compose_config",
+      "command": "docker compose -f docker-compose.prod.yml config",
+      "required": true,
+      "exitCode": 0,
+      "durationSeconds": 0.514,
+      "outputPreview": "      source: caddy-config\n        target: /config\n        volume: {}\n  frontend:\n    build:\n      context: D:\\HuaweiMoveData\\Users\\别碰我的电脑\\Documents\\New project\n      dockerfile: Dockerfile.frontend\n    depends_on:\n      backend:\n        condition: service_healthy\n        required: true\n    environment:\n      ADMIN_EDITOR_TOKEN: dev-editor-token\n      ADMIN_TOKEN: dev-admin-token\n      ADMIN_VIEW_TOKEN: dev-view-token\n      AI_PROVIDER: local\n      AI_TRACE: \"false\"\n      BACKEND_URL: http://backend:8000\n      DEEPSEEK_API_KEY: \"\"\n      DEEPSEEK_BASE_URL: https://api.deepseek.com\n      DEEPSEEK_MODEL: deepseek-v4-pro\n      DEEPSEEK_REASONING_EFFORT: medium\n      DEEPSEEK_TIMEOUT_SECONDS: \"45\"\n    networks:\n      app_net:\n        ipv4_address: 172.30.0.10\n    restart: unless-stopped\n  postgres:\n    environment:\n      POSTGRES_DB: law_assistant\n      POSTGRES_PASSWORD: law_password\n      POSTGRES_USER: law\n    healthcheck:\n      test:\n        - CMD-SHELL\n        - pg_isready -U law -d law_assistant\n      timeout: 5s\n      interval: 10s\n      retries: 10\n      start_period: 20s\n    image: postgres:16-alpine\n    networks:\n      app_net:\n        ipv4_address: 172.30.0.12\n    restart: unless-stopped\n    volumes:\n      - type: volume\n        source: postgres-data\n        target: /var/lib/postgresql/data\n        volume: {}\nnetworks:\n  app_net:\n    name: newproject_app_net\n    ipam:\n      config:\n        - subnet: 172.30.0.0/24\nvolumes:\n  caddy-config:\n    name: newproject_caddy-config\n  caddy-data:\n    name: newproject_caddy-data\n  postgres-data:\n    name: newproject_postgres-data\n",
+      "status": "passed"
+    }
+  ],
+  "secretScan": {
+    "passed": true,
+    "checkedFiles": [
+      ".env.example",
+      "README.md",
+      "docs/deployment.md",
+      "docs/iteration-log.md",
+      "docs/public-demo.md",
+      "docker-compose.yml",
+      "docker-compose.prod.yml",
+      "deploy/Caddyfile",
+      "evals/chongqing_adapted_input_cases_50.json",
+      "evals/chongqing_labor_eval_cases.json",
+      "evals/chongqing_production_eval_cases.json"
+    ],
+    "hits": []
+  },
+  "publicDemoConfig": {
+    "passed": true,
+    "missingFiles": [],
+    "checks": [
+      {
+        "name": "env_public_demo_vars",
+        "passed": true
+      },
+      {
+        "name": "prod_compose_public_entrypoint",
+        "passed": true
+      },
+      {
+        "name": "prod_compose_backend_not_public",
+        "passed": true
+      },
+      {
+        "name": "prod_compose_healthz",
+        "passed": true
+      },
+      {
+        "name": "caddy_uses_domain_and_frontend",
+        "passed": true
+      },
+      {
+        "name": "docs_public_demo_runbook",
+        "passed": true
+      },
+      {
+        "name": "docs_demo_roles",
+        "passed": true
+      }
+    ],
+    "failedChecks": []
+  },
+  "safety": {
+    "doesNotReadEnvLocal": true,
+    "doesNotExportSecrets": true,
+    "outputPreviewOnly": true,
+    "checksPublicDemoConfig": true
+  }
+}

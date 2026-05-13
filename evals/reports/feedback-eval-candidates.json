@@ -1,0 +1,46 @@
+{
+  "generatedAt": "2026-05-12T15:02:33+08:00",
+  "generator": "scripts/feedback-to-eval-candidates.py",
+  "safety": {
+    "doesNotReadEnvFiles": true,
+    "doesNotReadSecrets": true,
+    "rawLongTextPolicy": "comment previews capped at 80 chars; full comments are hashed only"
+  },
+  "sourceFiles": [
+    {
+      "path": "evals/reports/deepseek-shadow-latest.json",
+      "type": "local_report"
+    }
+  ],
+  "summary": {
+    "candidateCount": 0,
+    "feedbackSources": [],
+    "localReportSources": [
+      {
+        "sourceFile": "evals/reports/deepseek-shadow-latest.json",
+        "status": "passed",
+        "sampleCount": 1,
+        "differenceCount": 0,
+        "candidateSignalCaseCount": 0
+      }
+    ],
+    "warnings": []
+  },
+  "manualEvalTemplate": {
+    "id": "eval-from-feedback-TODO",
+    "narrative": "TODO: anonymized user scenario, no names/phone/id/full original text.",
+    "expectedScenarioLabel": "TODO",
+    "expectedRiskLevel": "low|high",
+    "expectedCitationCount": null,
+    "expectedHeadlineIncludes": "TODO",
+    "mustContain": [],
+    "mustAvoid": [],
+    "expectCompensationRange": null
+  },
+  "candidates": [],
+  "nextSteps": [
+    "Review each candidate and fill evalCandidateTemplate.narrative with an anonymized scenario.",
+    "Add the completed cases to evals/chongqing_labor_eval_cases.json or a follow-up eval file.",
+    "Run the eval suite again and compare the next local report."
+  ]
+}

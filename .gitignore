@@ -1,0 +1,21 @@
+.next/
+node_modules/
+coverage/
+.env
+.env.local
+.env.development
+.env.production
+npm-debug.log*
+law.db
+__pycache__/
+*.pyc
+.pytest_cache/
+.playwright-cli/
+tsconfig.tsbuildinfo
+.claude/
+
+# PWA build artifacts
+public/sw.js
+public/workbox-*.js
+public/sw.js.map
+public/workbox-*.js.map

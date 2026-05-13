@@ -1,0 +1,687 @@
+{
+  "generatedAt": "2026-05-13T11:58:43+08:00",
+  "provider": "local",
+  "status": "passed",
+  "dataset": {
+    "name": "重庆劳动法生产评测集 v1",
+    "datasetType": "production_eval_v1",
+    "path": "evals/chongqing_production_eval_cases.json"
+  },
+  "summary": {
+    "total": 12,
+    "passed": 12,
+    "failed": 0,
+    "passRate": 1.0,
+    "lowConfidenceCount": 2,
+    "handoffCount": 2,
+    "reviewQueueCount": 2,
+    "dimensionFailures": {}
+  },
+  "reviewQueue": [
+    {
+      "caseId": "prod-termination-fragmented-jiangbei",
+      "priority": "high",
+      "category": "low_confidence_handoff",
+      "recommendation": "进入人工复核队列",
+      "failedDimensions": [],
+      "handoffRequired": true,
+      "handoffReasons": [
+        "风险等级为 high，当前信息不足以直接给出稳定路径。",
+        "缺少3项关键信息，需补齐后再评估。",
+        "系统置信度低于 0.55，建议人工复核。"
+      ]
+    },
+    {
+      "caseId": "prod-unknown-vague-consult",
+      "priority": "high",
+      "category": "low_confidence_handoff",
+      "recommendation": "进入人工复核队列",
+      "failedDimensions": [],
+      "handoffRequired": true,
+      "handoffReasons": [
+        "争议类型未识别，需要人工确认劳动法适用范围。",
+        "风险等级为 high，当前信息不足以直接给出稳定路径。",
+        "系统置信度低于 0.55，建议人工复核。"
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "caseId": "prod-wage-complete-yubei",
+      "category": "clear_claim",
+      "passed": true,
+      "failedDimensions": [],
+      "confidence": 0.78,
+      "confidenceLabel": "high",
+      "handoffRequired": false,
+      "handoffReasons": [],
+      "checks": [
+        {
+          "name": "scenario",
+          "passed": true,
+          "detail": "拖欠工资"
+        },
+        {
+          "name": "risk",
+          "passed": true,
+          "detail": "low"
+        },
+        {
+          "name": "citations",
+          "passed": true,
+          "detail": "3"
+        },
+        {
+          "name": "confidence_floor",
+          "passed": true,
+          "detail": "0.78"
+        },
+        {
+          "name": "handoff_required",
+          "passed": true,
+          "detail": "False"
+        },
+        {
+          "name": "follow_up",
+          "passed": true,
+          "detail": "0"
+        },
+        {
+          "name": "required_content",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "forbidden_content",
+          "passed": true,
+          "detail": "ok"
+        }
+      ]
+    },
+    {
+      "caseId": "prod-termination-fragmented-jiangbei",
+      "category": "low_confidence_handoff",
+      "passed": true,
+      "failedDimensions": [],
+      "confidence": 0.54,
+      "confidenceLabel": "low",
+      "handoffRequired": true,
+      "handoffReasons": [
+        "风险等级为 high，当前信息不足以直接给出稳定路径。",
+        "缺少3项关键信息，需补齐后再评估。",
+        "系统置信度低于 0.55，建议人工复核。"
+      ],
+      "checks": [
+        {
+          "name": "scenario",
+          "passed": true,
+          "detail": "违法解除/辞退"
+        },
+        {
+          "name": "risk",
+          "passed": true,
+          "detail": "high"
+        },
+        {
+          "name": "citations",
+          "passed": true,
+          "detail": "3"
+        },
+        {
+          "name": "confidence_floor",
+          "passed": true,
+          "detail": "0.54"
+        },
+        {
+          "name": "handoff_required",
+          "passed": true,
+          "detail": "True"
+        },
+        {
+          "name": "follow_up",
+          "passed": true,
+          "detail": "4"
+        },
+        {
+          "name": "required_content",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "forbidden_content",
+          "passed": true,
+          "detail": "ok"
+        }
+      ]
+    },
+    {
+      "caseId": "prod-contract-backfill-shapingba",
+      "category": "clear_claim",
+      "passed": true,
+      "failedDimensions": [],
+      "confidence": 0.75,
+      "confidenceLabel": "high",
+      "handoffRequired": false,
+      "handoffReasons": [],
+      "checks": [
+        {
+          "name": "scenario",
+          "passed": true,
+          "detail": "未签书面劳动合同"
+        },
+        {
+          "name": "risk",
+          "passed": true,
+          "detail": "low"
+        },
+        {
+          "name": "citations",
+          "passed": true,
+          "detail": "3"
+        },
+        {
+          "name": "confidence_floor",
+          "passed": true,
+          "detail": "0.75"
+        },
+        {
+          "name": "handoff_required",
+          "passed": true,
+          "detail": "False"
+        },
+        {
+          "name": "follow_up",
+          "passed": true,
+          "detail": "1"
+        },
+        {
+          "name": "required_content",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "forbidden_content",
+          "passed": true,
+          "detail": "ok"
+        }
+      ]
+    },
+    {
+      "caseId": "prod-overtime-evidence-gap-dadukou",
+      "category": "needs_follow_up",
+      "passed": true,
+      "failedDimensions": [],
+      "confidence": 0.75,
+      "confidenceLabel": "high",
+      "handoffRequired": false,
+      "handoffReasons": [],
+      "checks": [
+        {
+          "name": "scenario",
+          "passed": true,
+          "detail": "加班费/工时争议"
+        },
+        {
+          "name": "risk",
+          "passed": true,
+          "detail": "low"
+        },
+        {
+          "name": "citations",
+          "passed": true,
+          "detail": "3"
+        },
+        {
+          "name": "confidence_floor",
+          "passed": true,
+          "detail": "0.75"
+        },
+        {
+          "name": "handoff_required",
+          "passed": true,
+          "detail": "False"
+        },
+        {
+          "name": "follow_up",
+          "passed": true,
+          "detail": "2"
+        },
+        {
+          "name": "required_content",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "forbidden_content",
+          "passed": true,
+          "detail": "ok"
+        }
+      ]
+    },
+    {
+      "caseId": "prod-labor-relation-platform-nanan",
+      "category": "platform_relation",
+      "passed": true,
+      "failedDimensions": [],
+      "confidence": 0.72,
+      "confidenceLabel": "high",
+      "handoffRequired": false,
+      "handoffReasons": [],
+      "checks": [
+        {
+          "name": "scenario",
+          "passed": true,
+          "detail": "劳动关系认定"
+        },
+        {
+          "name": "risk",
+          "passed": true,
+          "detail": "low"
+        },
+        {
+          "name": "citations",
+          "passed": true,
+          "detail": "3"
+        },
+        {
+          "name": "confidence_floor",
+          "passed": true,
+          "detail": "0.72"
+        },
+        {
+          "name": "handoff_required",
+          "passed": true,
+          "detail": "False"
+        },
+        {
+          "name": "follow_up",
+          "passed": true,
+          "detail": "3"
+        },
+        {
+          "name": "required_content",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "forbidden_content",
+          "passed": true,
+          "detail": "ok"
+        }
+      ]
+    },
+    {
+      "caseId": "prod-social-insurance-gap-banan",
+      "category": "clear_claim",
+      "passed": true,
+      "failedDimensions": [],
+      "confidence": 0.78,
+      "confidenceLabel": "high",
+      "handoffRequired": false,
+      "handoffReasons": [],
+      "checks": [
+        {
+          "name": "scenario",
+          "passed": true,
+          "detail": "社会保险争议"
+        },
+        {
+          "name": "risk",
+          "passed": true,
+          "detail": "low"
+        },
+        {
+          "name": "citations",
+          "passed": true,
+          "detail": "3"
+        },
+        {
+          "name": "confidence_floor",
+          "passed": true,
+          "detail": "0.78"
+        },
+        {
+          "name": "handoff_required",
+          "passed": true,
+          "detail": "False"
+        },
+        {
+          "name": "follow_up",
+          "passed": true,
+          "detail": "1"
+        },
+        {
+          "name": "required_content",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "forbidden_content",
+          "passed": true,
+          "detail": "ok"
+        }
+      ]
+    },
+    {
+      "caseId": "prod-work-injury-incomplete-hechuan",
+      "category": "needs_follow_up",
+      "passed": true,
+      "failedDimensions": [],
+      "confidence": 0.72,
+      "confidenceLabel": "high",
+      "handoffRequired": false,
+      "handoffReasons": [],
+      "checks": [
+        {
+          "name": "scenario",
+          "passed": true,
+          "detail": "工伤待遇争议"
+        },
+        {
+          "name": "risk",
+          "passed": true,
+          "detail": "low"
+        },
+        {
+          "name": "citations",
+          "passed": true,
+          "detail": "3"
+        },
+        {
+          "name": "confidence_floor",
+          "passed": true,
+          "detail": "0.72"
+        },
+        {
+          "name": "handoff_required",
+          "passed": true,
+          "detail": "False"
+        },
+        {
+          "name": "follow_up",
+          "passed": true,
+          "detail": "3"
+        },
+        {
+          "name": "required_content",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "forbidden_content",
+          "passed": true,
+          "detail": "ok"
+        }
+      ]
+    },
+    {
+      "caseId": "prod-female-protection-yongchuan",
+      "category": "special_protection",
+      "passed": true,
+      "failedDimensions": [],
+      "confidence": 0.75,
+      "confidenceLabel": "high",
+      "handoffRequired": false,
+      "handoffReasons": [],
+      "checks": [
+        {
+          "name": "scenario",
+          "passed": true,
+          "detail": "女职工特殊保护"
+        },
+        {
+          "name": "risk",
+          "passed": true,
+          "detail": "low"
+        },
+        {
+          "name": "citations",
+          "passed": true,
+          "detail": "3"
+        },
+        {
+          "name": "confidence_floor",
+          "passed": true,
+          "detail": "0.75"
+        },
+        {
+          "name": "handoff_required",
+          "passed": true,
+          "detail": "False"
+        },
+        {
+          "name": "follow_up",
+          "passed": true,
+          "detail": "2"
+        },
+        {
+          "name": "required_content",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "forbidden_content",
+          "passed": true,
+          "detail": "ok"
+        }
+      ]
+    },
+    {
+      "caseId": "prod-non-compete-unclear-liangjiang",
+      "category": "special_protection",
+      "passed": true,
+      "failedDimensions": [],
+      "confidence": 0.75,
+      "confidenceLabel": "high",
+      "handoffRequired": false,
+      "handoffReasons": [],
+      "checks": [
+        {
+          "name": "scenario",
+          "passed": true,
+          "detail": "竞业限制争议"
+        },
+        {
+          "name": "risk",
+          "passed": true,
+          "detail": "low"
+        },
+        {
+          "name": "citations",
+          "passed": true,
+          "detail": "3"
+        },
+        {
+          "name": "confidence_floor",
+          "passed": true,
+          "detail": "0.75"
+        },
+        {
+          "name": "handoff_required",
+          "passed": true,
+          "detail": "False"
+        },
+        {
+          "name": "follow_up",
+          "passed": true,
+          "detail": "2"
+        },
+        {
+          "name": "required_content",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "forbidden_content",
+          "passed": true,
+          "detail": "ok"
+        }
+      ]
+    },
+    {
+      "caseId": "prod-pay-benefits-furlough-fuling",
+      "category": "benefits",
+      "passed": true,
+      "failedDimensions": [],
+      "confidence": 0.75,
+      "confidenceLabel": "high",
+      "handoffRequired": false,
+      "handoffReasons": [],
+      "checks": [
+        {
+          "name": "scenario",
+          "passed": true,
+          "detail": "工资福利/休假争议"
+        },
+        {
+          "name": "risk",
+          "passed": true,
+          "detail": "low"
+        },
+        {
+          "name": "citations",
+          "passed": true,
+          "detail": "3"
+        },
+        {
+          "name": "confidence_floor",
+          "passed": true,
+          "detail": "0.75"
+        },
+        {
+          "name": "handoff_required",
+          "passed": true,
+          "detail": "False"
+        },
+        {
+          "name": "follow_up",
+          "passed": true,
+          "detail": "2"
+        },
+        {
+          "name": "required_content",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "forbidden_content",
+          "passed": true,
+          "detail": "ok"
+        }
+      ]
+    },
+    {
+      "caseId": "prod-mixed-three-claims-jiulongpo",
+      "category": "mixed_claims",
+      "passed": true,
+      "failedDimensions": [],
+      "confidence": 0.78,
+      "confidenceLabel": "high",
+      "handoffRequired": false,
+      "handoffReasons": [],
+      "checks": [
+        {
+          "name": "scenario",
+          "passed": true,
+          "detail": "混合争议"
+        },
+        {
+          "name": "risk",
+          "passed": true,
+          "detail": "low"
+        },
+        {
+          "name": "citations",
+          "passed": true,
+          "detail": "3"
+        },
+        {
+          "name": "confidence_floor",
+          "passed": true,
+          "detail": "0.78"
+        },
+        {
+          "name": "handoff_required",
+          "passed": true,
+          "detail": "False"
+        },
+        {
+          "name": "follow_up",
+          "passed": true,
+          "detail": "1"
+        },
+        {
+          "name": "required_content",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "forbidden_content",
+          "passed": true,
+          "detail": "ok"
+        }
+      ]
+    },
+    {
+      "caseId": "prod-unknown-vague-consult",
+      "category": "low_confidence_handoff",
+      "passed": true,
+      "failedDimensions": [],
+      "confidence": 0.2,
+      "confidenceLabel": "low",
+      "handoffRequired": true,
+      "handoffReasons": [
+        "争议类型未识别，需要人工确认劳动法适用范围。",
+        "风险等级为 high，当前信息不足以直接给出稳定路径。",
+        "系统置信度低于 0.55，建议人工复核。"
+      ],
+      "checks": [
+        {
+          "name": "scenario",
+          "passed": true,
+          "detail": "未识别场景"
+        },
+        {
+          "name": "risk",
+          "passed": true,
+          "detail": "high"
+        },
+        {
+          "name": "citations",
+          "passed": true,
+          "detail": "2"
+        },
+        {
+          "name": "confidence_floor",
+          "passed": true,
+          "detail": "0.2"
+        },
+        {
+          "name": "handoff_required",
+          "passed": true,
+          "detail": "True"
+        },
+        {
+          "name": "follow_up",
+          "passed": true,
+          "detail": "3"
+        },
+        {
+          "name": "required_content",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "forbidden_content",
+          "passed": true,
+          "detail": "ok"
+        }
+      ]
+    }
+  ],
+  "safety": {
+    "doesNotReadSecrets": true,
+    "doesNotExportRawNarratives": true,
+    "doesNotExportInternalTranscript": true
+  }
+}

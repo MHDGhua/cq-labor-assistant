@@ -1,0 +1,74 @@
+[
+  {
+    "id": "national-labor-dispute-mediation-arbitration-act",
+    "title": "劳动争议调解仲裁法",
+    "category": "law",
+    "region": "全国",
+    "year": 2007,
+    "summary": "明确劳动争议先行调解、仲裁前置、时效与管辖等基础规则。",
+    "content": "适合作为全国层面的入口法源，帮助系统判断是否应优先走调解和仲裁，以及时效、管辖和证据准备是否需要提前提醒。",
+    "sourceUrl": "https://gongbao.court.gov.cn/Details/997e66171cf55d219c613ec18dc370.html",
+    "sourceLabel": "中国法院网公报",
+    "tags": ["调解", "仲裁", "时效", "管辖"]
+  },
+  {
+    "id": "spc-labor-dispute-interpretation-1",
+    "title": "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）",
+    "category": "judicial_interpretation",
+    "region": "全国",
+    "year": 2020,
+    "summary": "细化劳动关系认定、未签书面合同、社保和裁审衔接等问题。",
+    "content": "适合用于判断劳动关系是否成立、书面劳动合同是否缺失、社保办理能否补救，以及仲裁和诉讼之间如何衔接。",
+    "sourceUrl": "https://www.court.gov.cn/zixun/xiangqing/282121.html",
+    "sourceLabel": "最高人民法院",
+    "tags": ["劳动关系", "书面合同", "社保", "诉讼衔接"]
+  },
+  {
+    "id": "spc-labor-dispute-interpretation-2",
+    "title": "最高人民法院关于审理劳动争议案件适用法律问题的解释（二）",
+    "category": "judicial_interpretation",
+    "region": "全国",
+    "year": 2025,
+    "summary": "回应混同用工、竞业限制等热点争议，并补强劳动争议裁判规则。",
+    "content": "适合作为近年的更新法源，辅助判断工资支付、主体责任、混同用工和新型劳动关系争议中的事实证据。",
+    "sourceUrl": "https://www.court.gov.cn/zixun/xiangqing/472691.html",
+    "sourceLabel": "最高人民法院",
+    "tags": ["混同用工", "竞业限制", "工资支付", "裁判规则"]
+  },
+  {
+    "id": "cq-hrss-2021-typical-cases",
+    "title": "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+    "category": "local_case",
+    "region": "重庆市",
+    "year": 2021,
+    "summary": "重庆市人社局发布的仲裁典型案例，覆盖欠薪、解除、试岗和未签合同等高频场景。",
+    "content": "适合做重庆本地化检索样本，帮助系统把拖欠工资、解除通知、试岗争议和未签合同这类问题映射到本地公开案例。",
+    "sourceUrl": "https://rlsbj.cq.gov.cn/zwxx_182/tzgg/202105/t20210506_9245920.html",
+    "sourceLabel": "重庆市人力资源和社会保障局",
+    "tags": ["欠薪", "解除", "未签合同", "仲裁"]
+  },
+  {
+    "id": "cq-high-court-2020-typical-cases",
+    "title": "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+    "category": "local_case",
+    "region": "重庆市",
+    "year": 2020,
+    "summary": "重庆高院典型案例强调解除程序、调岗、工伤主体责任与证据链。",
+    "content": "适合在结论审校中使用，帮助判断解除是否合法、调岗是否合理、工伤责任如何分配，以及证据链是否闭环。",
+    "sourceUrl": "https://rlsbj.cq.gov.cn/zwxx_182/tzgg/202105/t20210506_9245905.html",
+    "sourceLabel": "重庆市高级人民法院",
+    "tags": ["解除", "工伤", "调岗", "证据链"]
+  },
+  {
+    "id": "cq-arbitration-guidance-2023",
+    "title": "重庆劳动争议仲裁办事指南",
+    "category": "procedure",
+    "region": "重庆市",
+    "year": 2023,
+    "summary": "重庆劳动人事争议仲裁办事指南，梳理案件受理、管辖和申请入口。",
+    "content": "适合在结果中提醒受理层级、管辖分配和程序路径，强调流程与服务，而不是输出裁判偏向。",
+    "sourceUrl": "https://rlsbj.cq.gov.cn/ztzl/zjskzcfwb/gfygzcp/ygzc/202307/t20230728_12196234.html",
+    "sourceLabel": "重庆市人力资源和社会保障局",
+    "tags": ["管辖", "受理", "程序", "入口"]
+  }
+]

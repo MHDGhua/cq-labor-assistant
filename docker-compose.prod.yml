@@ -1,0 +1,100 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    environment:
+      BACKEND_URL: http://backend:8000
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-dev-admin-token}
+      ADMIN_EDITOR_TOKEN: ${ADMIN_EDITOR_TOKEN:-dev-editor-token}
+      ADMIN_VIEW_TOKEN: ${ADMIN_VIEW_TOKEN:-dev-view-token}
+      AI_PROVIDER: ${AI_PROVIDER:-local}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+      DEEPSEEK_BASE_URL: ${DEEPSEEK_BASE_URL:-https://api.deepseek.com}
+      DEEPSEEK_MODEL: ${DEEPSEEK_MODEL:-deepseek-v4-pro}
+      DEEPSEEK_REASONING_EFFORT: ${DEEPSEEK_REASONING_EFFORT:-medium}
+      DEEPSEEK_TIMEOUT_SECONDS: ${DEEPSEEK_TIMEOUT_SECONDS:-45}
+      AI_TRACE: ${AI_TRACE:-false}
+    networks:
+      app_net:
+        ipv4_address: 172.30.0.10
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      DATABASE_URL: postgresql+psycopg2://law:law_password@postgres:5432/law_assistant
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-dev-admin-token}
+      ADMIN_EDITOR_TOKEN: ${ADMIN_EDITOR_TOKEN:-dev-editor-token}
+      ADMIN_VIEW_TOKEN: ${ADMIN_VIEW_TOKEN:-dev-view-token}
+      AI_PROVIDER: ${AI_PROVIDER:-local}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+      DEEPSEEK_BASE_URL: ${DEEPSEEK_BASE_URL:-https://api.deepseek.com}
+      DEEPSEEK_MODEL: ${DEEPSEEK_MODEL:-deepseek-v4-pro}
+      DEEPSEEK_REASONING_EFFORT: ${DEEPSEEK_REASONING_EFFORT:-medium}
+      DEEPSEEK_TIMEOUT_SECONDS: ${DEEPSEEK_TIMEOUT_SECONDS:-45}
+      AI_TRACE: ${AI_TRACE:-false}
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/healthz').read()\""]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    networks:
+      app_net:
+        ipv4_address: 172.30.0.11
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: law_assistant
+      POSTGRES_USER: law
+      POSTGRES_PASSWORD: law_password
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U law -d law_assistant"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    networks:
+      app_net:
+        ipv4_address: 172.30.0.12
+    restart: unless-stopped
+
+  caddy:
+    image: caddy:2.8-alpine
+    depends_on:
+      frontend:
+        condition: service_started
+    environment:
+      SERVER_NAME: ${SERVER_NAME:-tinko.xin}
+    network_mode: host
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    restart: unless-stopped
+
+volumes:
+  postgres-data:
+  caddy-data:
+  caddy-config:
+
+networks:
+  app_net:
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24

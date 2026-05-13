@@ -1,0 +1,8 @@
+coverage/
+law.db
+test_law.db
+__pycache__/
+*.pyc
+.git/
+.env
+.env.local

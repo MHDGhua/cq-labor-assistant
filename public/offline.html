@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>离线 - 重庆劳动法案情分析助手</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #131b1d;
+      color: #e7ddca;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .offline-card {
+      text-align: center;
+      max-width: 400px;
+    }
+    .offline-card h1 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      color: #6fb7b2;
+    }
+    .offline-card p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      opacity: 0.85;
+    }
+    .offline-card .tip {
+      background: rgba(111, 183, 178, 0.08);
+      border: 1px solid rgba(111, 183, 178, 0.2);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+    .offline-card .tip strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #6fb7b2;
+    }
+    .retry-btn {
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: #6fb7b2;
+      color: #131b1d;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="offline-card">
+    <h1>当前没有网络连接</h1>
+    <p>分析功能需要联网使用，但你可以先记下要咨询的问题。</p>
+    <div class="tip">
+      <strong>离线时可以做的事：</strong>
+      <p>1. 整理好你的情况描述（入职时间、工资、发生了什么）</p>
+      <p>2. 准备好证据（聊天记录截图、工资条、合同照片）</p>
+      <p>3. 记下12348法律援助热线，有网后再来分析</p>
+    </div>
+    <button class="retry-btn" onclick="window.location.reload()">重新连接</button>
+  </div>
+</body>
+</html>

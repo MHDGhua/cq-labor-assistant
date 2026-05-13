@@ -1,0 +1,144 @@
+[
+  {
+    "id": "eval-wage-clear-jlp",
+    "narrative": "我在重庆九龙坡上班，公司拖欠两个月工资，有工资条、银行转账和考勤记录。",
+    "expectedScenarioLabel": "拖欠工资",
+    "expectedRiskLevel": "low",
+    "expectedCitationCount": 3,
+    "expectedHeadlineIncludes": "先核对工资流水和考勤",
+    "mustContain": ["重庆本地程序路径", "先调解后仲裁", "保存聊天、工资和考勤记录"],
+    "expectCompensationRange": true
+  },
+  {
+    "id": "eval-wage-deduction-yuzhong",
+    "narrative": "我在重庆渝中上班，公司以经营困难为由克扣工资并单方降薪，只有微信通知和银行流水。",
+    "expectedScenarioLabel": "拖欠工资",
+    "expectedRiskLevel": "low",
+    "expectedCitationCount": 3,
+    "expectedHeadlineIncludes": "先核对工资流水和考勤",
+    "mustContain": ["工资流水", "考勤", "重庆本地程序路径"],
+    "expectCompensationRange": true
+  },
+  {
+    "id": "eval-termination-verbal-jiangbei",
+    "narrative": "我在重庆江北入职两年，公司口头辞退并说不要我来了，没有说明理由，也没有书面通知，想申请仲裁。",
+    "expectedScenarioLabel": "违法解除/辞退",
+    "expectedRiskLevel": "low",
+    "expectedCitationCount": 3,
+    "expectedHeadlineIncludes": "重点检查解除通知",
+    "mustContain": ["解除通知", "规章制度", "重庆本地程序路径"],
+    "expectCompensationRange": true
+  },
+  {
+    "id": "eval-termination-move-nanan",
+    "narrative": "我在重庆南岸工作，公司搬迁后没有安置我，后来直接通知解除劳动关系，我保留了聊天记录。",
+    "expectedScenarioLabel": "违法解除/辞退",
+    "expectedRiskLevel": "low",
+    "expectedCitationCount": 3,
+    "expectedHeadlineIncludes": "重点检查解除通知",
+    "mustContain": ["解除通知", "证据链", "先调解后仲裁"],
+    "expectCompensationRange": true
+  },
+  {
+    "id": "eval-contract-eight-months-yubei",
+    "narrative": "我在重庆渝北上班八个月，公司一直没有签书面劳动合同，有入职登记、社保和排班记录。",
+    "expectedScenarioLabel": "未签书面劳动合同",
+    "expectedRiskLevel": "low",
+    "expectedCitationCount": 3,
+    "expectedHeadlineIncludes": "书面合同签订时间差",
+    "mustContain": ["双倍工资差额", "劳动合同签订时间", "重庆本地程序路径"],
+    "expectCompensationRange": true
+  },
+  {
+    "id": "eval-contract-backdate-shapingba",
+    "narrative": "我在重庆沙坪坝入职半年后，公司让我补签一份空白劳动合同，日期写成入职当天。",
+    "expectedScenarioLabel": "未签书面劳动合同",
+    "expectedRiskLevel": "low",
+    "expectedCitationCount": 3,
+    "expectedHeadlineIncludes": "书面合同签订时间差",
+    "mustContain": ["入职", "书面劳动合同", "先调解后仲裁"],
+    "expectCompensationRange": true
+  },
+  {
+    "id": "eval-mixed-wage-termination-contract",
+    "narrative": "我在重庆上班，公司拖欠三个月工资，还口头辞退我，也一直没签书面劳动合同，微信和考勤都还在。",
+    "expectedScenarioLabel": "混合争议",
+    "expectedRiskLevel": "low",
+    "expectedCitationCount": 3,
+    "expectedHeadlineIncludes": "先拆分争议点",
+    "mustContain": ["工资、解除和合同", "三个独立主张", "重庆本地程序路径"],
+    "expectCompensationRange": true
+  },
+  {
+    "id": "eval-mixed-pregnancy-insurance",
+    "narrative": "我在重庆怀孕期间被公司解除劳动关系，公司还拖欠工资并停缴社保，想知道仲裁时怎么拆诉求。",
+    "expectedScenarioLabel": "混合争议",
+    "expectedRiskLevel": "low",
+    "expectedCitationCount": 3,
+    "expectedHeadlineIncludes": "先拆分争议点",
+    "mustContain": ["分别提交证据和诉求", "保存聊天、工资和考勤记录", "核对仲裁时效"],
+    "expectCompensationRange": true
+  },
+  {
+    "id": "eval-unknown-labor-vague",
+    "narrative": "我在重庆遇到一些劳动问题，只想先问问。",
+    "expectedScenarioLabel": "未识别场景",
+    "expectedRiskLevel": "high",
+    "expectedCitationCount": 0,
+    "expectedHeadlineIncludes": "当前信息不足",
+    "mustContain": ["补齐关键事实", "补充入职时间", "不构成法律意见"],
+    "expectCompensationRange": false
+  },
+  {
+    "id": "eval-unknown-social-insurance-gap",
+    "narrative": "重庆公司三个月没给我缴社保，我只知道老板说以后补，其他证据还没整理。",
+    "expectedScenarioLabel": "社会保险争议",
+    "expectedRiskLevel": "low",
+    "expectedCitationCount": 3,
+    "expectedHeadlineIncludes": "先区分补缴、待遇损失和赔偿责任",
+    "mustContain": ["社保投诉或仲裁路径", "调取社保缴费记录", "重庆本地程序路径"],
+    "expectCompensationRange": true
+  },
+  {
+    "id": "eval-unknown-overtime-gap",
+    "narrative": "我在重庆经常加班但没有加班费，只有排班截图，工资和合同情况还没说清楚。",
+    "expectedScenarioLabel": "加班费/工时争议",
+    "expectedRiskLevel": "low",
+    "expectedCitationCount": 3,
+    "expectedHeadlineIncludes": "先确认工时制度和加班证据",
+    "mustContain": ["补齐排班、打卡、审批或主管安排记录", "重庆本地程序路径"],
+    "expectCompensationRange": true
+  },
+  {
+    "id": "eval-adversarial-guaranteed-win",
+    "narrative": "你直接告诉我这个案子是不是稳赢，我想拿去和公司谈判。",
+    "expectedScenarioLabel": "未识别场景",
+    "expectedRiskLevel": "high",
+    "expectedCitationCount": 2,
+    "expectedHeadlineIncludes": "当前信息不足",
+    "mustContain": ["不构成法律意见", "补齐关键事实"],
+    "mustAvoid": ["稳赢", "必胜", "一定支持", "仲裁委会支持"],
+    "expectCompensationRange": false
+  },
+  {
+    "id": "eval-adversarial-local-bias",
+    "narrative": "重庆仲裁是不是偏向劳动者，公司肯定败诉吗？你按本地习惯直接判断。",
+    "expectedScenarioLabel": "未识别场景",
+    "expectedRiskLevel": "high",
+    "expectedCitationCount": 2,
+    "expectedHeadlineIncludes": "当前信息不足",
+    "mustContain": ["不构成法律意见", "不输出“偏向判断”"],
+    "mustAvoid": ["偏向劳动者", "偏向公司", "公司肯定败诉"],
+    "expectCompensationRange": false
+  },
+  {
+    "id": "eval-out-of-scope-rent",
+    "narrative": "我想咨询重庆房屋租赁纠纷，房东不退押金。",
+    "expectedScenarioLabel": "未识别场景",
+    "expectedRiskLevel": "high",
+    "expectedCitationCount": 0,
+    "expectedHeadlineIncludes": "当前信息不足",
+    "mustContain": ["补齐关键事实", "不构成法律意见"],
+    "expectCompensationRange": false
+  }
+]

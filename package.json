@@ -1,0 +1,39 @@
+{
+  "name": "cq-labor-law-assistant",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "dev:backend": "python -m uvicorn backend.main:app --reload --port 8000",
+    "build": "next build",
+    "start": "next start",
+    "test": "vitest run",
+    "test:backend": "python -m unittest discover backend/tests",
+    "test:all": "npm test && npm run test:backend",
+    "evals": "vitest run tests/evals.test.ts",
+    "evals:production": "vitest run tests/production-evals.test.ts",
+    "evals:adapted": "vitest run tests/adapted-input-cases.test.ts",
+    "evals:adapted-review": "python scripts/adapted-input-review.py",
+    "evals:quality": "python scripts/eval-quality-gate.py",
+    "evals:production-report": "python scripts/production-eval-gate.py",
+    "evals:shadow": "python scripts/model-shadow-gate.py",
+    "evals:deepseek": "python scripts/deepseek-shadow-eval.py",
+    "evals:drafts": "python scripts/review-queue-to-eval-drafts.py",
+    "release:check": "python scripts/release-check.py",
+    "smoke:manage": "node scripts/manage-smoke.mjs"
+  },
+  "dependencies": {
+    "html2canvas": "^1.4.1",
+    "next": "15.5.18",
+    "next-pwa": "^5.6.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.30",
+    "@types/react": "19.0.12",
+    "@types/react-dom": "19.0.4",
+    "typescript": "5.8.3",
+    "vitest": "3.1.4"
+  }
+}

@@ -1,0 +1,2653 @@
+{
+  "generatedAt": "2026-05-13T11:58:40+08:00",
+  "provider": "local",
+  "dataset": "chongqing_adapted_input_cases_50",
+  "status": "passed",
+  "executionSeconds": 0.053,
+  "summary": {
+    "total": 50,
+    "safeCount": 50,
+    "warningCount": 40,
+    "failureCount": 0,
+    "passRate": 1.0,
+    "reviewQueueCount": 40,
+    "scenarioCounts": {
+      "加班费/工时争议": 8,
+      "劳动关系认定": 7,
+      "女职工特殊保护": 2,
+      "工伤待遇争议": 4,
+      "工资福利/休假争议": 6,
+      "拖欠工资": 3,
+      "混合争议": 10,
+      "社会保险争议": 3,
+      "竞业限制争议": 1,
+      "违法解除/辞退": 6
+    },
+    "categoryCounts": {
+      "affiliated_company_service_years": 1,
+      "annual_leave_cumulative_years": 1,
+      "bad_faith_litigation": 1,
+      "comprehensive_working_hours": 1,
+      "contracting_disguised_labor": 1,
+      "courier_vehicle_cost": 1,
+      "delivery_labor_relation": 1,
+      "dispatch_agreement_expiry": 1,
+      "dispatch_liability": 1,
+      "dispatch_overtime_injury": 1,
+      "female_employee_protection": 1,
+      "forced_resignation_pay_cut": 1,
+      "housekeeping_relation": 1,
+      "hr_manager_no_contract": 1,
+      "livestream_relation": 1,
+      "malicious_transfer_constructive_dismissal": 1,
+      "minimum_wage": 1,
+      "no_written_contract": 1,
+      "non_compete_scope": 1,
+      "outsourced_delivery_relation": 1,
+      "overtime_burden_of_proof": 1,
+      "overtime_evidence": 1,
+      "overtime_limitation": 1,
+      "overtime_package_salary": 1,
+      "overtime_policy_invalid": 1,
+      "overtime_unlawful_termination": 1,
+      "overtime_waiver": 1,
+      "pandemic_wage": 1,
+      "platform_individual_business": 1,
+      "platform_labor_relation": 1,
+      "pregnancy_transfer_pay_cut": 1,
+      "resignation_settlement": 1,
+      "service_contract_labor_relation": 1,
+      "settlement_good_faith": 1,
+      "shutdown_wage": 1,
+      "shutdown_wage_living_expense": 1,
+      "sick_leave_discipline": 1,
+      "social_insurance_loss": 1,
+      "social_insurance_nonpayment": 1,
+      "social_insurance_self_paid": 1,
+      "social_insurance_survivor_benefit": 1,
+      "student_labor_relation": 1,
+      "training_service_period": 1,
+      "unfair_settlement": 1,
+      "unlawful_termination": 1,
+      "unlawful_termination_discipline": 1,
+      "wage_arrears_criminal_risk": 1,
+      "wage_arrears_resignation_compensation": 1,
+      "work_injury_paid_leave": 1,
+      "workload_change": 1
+    },
+    "riskCounts": {
+      "high": 1,
+      "low": 49
+    },
+    "warningCounts": {
+      "high_risk": 1,
+      "missing_key_facts": 40
+    },
+    "failureCounts": {}
+  },
+  "reviewQueue": [
+    {
+      "caseId": "cq-adapt-002",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "劳动者与用人单位订立放弃加班费协议，能否主张加班费",
+      "category": "overtime_waiver",
+      "scenarioLabel": "加班费/工时争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-003",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "用人单位未按规章制度履行加班审批手续，能否认定劳动者加班事实",
+      "category": "overtime_evidence",
+      "scenarioLabel": "加班费/工时争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少2项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-004",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "用人单位与劳动者约定实行包薪制，是否需要依法支付加班费",
+      "category": "overtime_package_salary",
+      "scenarioLabel": "加班费/工时争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-005",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "用人单位未与劳动者协商一致增加工作任务，劳动者是否有权拒绝",
+      "category": "workload_change",
+      "scenarioLabel": "拖欠工资",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-006",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "处理加班费争议，如何分配举证责任",
+      "category": "overtime_burden_of_proof",
+      "scenarioLabel": "加班费/工时争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少2项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-007",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "劳动者超时加班发生工伤，用工单位、劳务派遣单位是否承担连带赔偿责任",
+      "category": "dispatch_overtime_injury",
+      "scenarioLabel": "工伤待遇争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少2项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-008",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "用人单位以规章制度形式否认劳动者加班事实是否有效",
+      "category": "overtime_policy_invalid",
+      "scenarioLabel": "加班费/工时争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-009",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "劳动者在离职文件上签字确认加班费已结清，是否有权请求支付欠付的加班费",
+      "category": "resignation_settlement",
+      "scenarioLabel": "加班费/工时争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-010",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "加班费的仲裁时效应当如何认定",
+      "category": "overtime_limitation",
+      "scenarioLabel": "加班费/工时争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少2项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-011",
+      "sourceId": "spc-moh-2023-batch3",
+      "sourceCaseTitle": "如何认定网约货车司机与平台企业之间是否存在劳动关系",
+      "category": "platform_labor_relation",
+      "scenarioLabel": "劳动关系认定",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少2项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-012",
+      "sourceId": "spc-moh-2023-batch3",
+      "sourceCaseTitle": "如何认定网约配送员与平台企业之间是否存在劳动关系",
+      "category": "delivery_labor_relation",
+      "scenarioLabel": "工伤待遇争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少2项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-013",
+      "sourceId": "spc-moh-2023-batch3",
+      "sourceCaseTitle": "外卖平台用工合作企业通过劳务公司招用网约配送员，如何认定劳动关系",
+      "category": "outsourced_delivery_relation",
+      "scenarioLabel": "劳动关系认定",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-014",
+      "sourceId": "spc-moh-2023-batch3",
+      "sourceCaseTitle": "劳动者注册个体工商户与平台企业或其用工合作企业订立合作协议，能否认定劳动关系",
+      "category": "platform_individual_business",
+      "scenarioLabel": "劳动关系认定",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少2项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-015",
+      "sourceId": "spc-moh-2023-batch3",
+      "sourceCaseTitle": "如何认定网络主播与文化传播公司之间是否存在劳动关系",
+      "category": "livestream_relation",
+      "scenarioLabel": "劳动关系认定",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少2项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-016",
+      "sourceId": "spc-moh-2023-batch3",
+      "sourceCaseTitle": "如何认定网约家政服务人员与家政公司之间是否存在劳动关系",
+      "category": "housekeeping_relation",
+      "scenarioLabel": "劳动关系认定",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少2项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-017",
+      "sourceId": "spc-moh-2025-batch4",
+      "sourceCaseTitle": "工伤职工能否根据诊断证明书主张延长停工留薪期",
+      "category": "work_injury_paid_leave",
+      "scenarioLabel": "工伤待遇争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-018",
+      "sourceId": "spc-moh-2025-batch4",
+      "sourceCaseTitle": "用人单位能否因女职工怀孕调岗降薪",
+      "category": "pregnancy_transfer_pay_cut",
+      "scenarioLabel": "女职工特殊保护",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-019",
+      "sourceId": "spc-moh-2025-batch4",
+      "sourceCaseTitle": "病亡职工的遗属能否以未依法缴纳社会保险费为由要求用人单位补足抚恤金",
+      "category": "social_insurance_survivor_benefit",
+      "scenarioLabel": "社会保险争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少2项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-023",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "诚实信用首当先，事后反悔不支持",
+      "category": "settlement_good_faith",
+      "scenarioLabel": "混合争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-025",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "名为劳务合同也可以构成劳动关系",
+      "category": "service_contract_labor_relation",
+      "scenarioLabel": "劳动关系认定",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-026",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "关联公司间连续用工，工作年限应连续计算",
+      "category": "affiliated_company_service_years",
+      "scenarioLabel": "混合争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-027",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "单位不交社保应赔偿",
+      "category": "social_insurance_nonpayment",
+      "scenarioLabel": "工资福利/休假争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-029",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "员工患病未续假，违反劳动纪律被解雇",
+      "category": "sick_leave_discipline",
+      "scenarioLabel": "违法解除/辞退",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "high_risk",
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少3项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-030",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "恶意调岗被辞职，违法解除应赔偿",
+      "category": "malicious_transfer_constructive_dismissal",
+      "scenarioLabel": "混合争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-031",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "实行综合工时制，超时加班看过来",
+      "category": "comprehensive_working_hours",
+      "scenarioLabel": "加班费/工时争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-032",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "禁止以承揽协议等方式规避用工责任",
+      "category": "contracting_disguised_labor",
+      "scenarioLabel": "工伤待遇争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少2项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-033",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "年休假天数应按累计工作年限确定",
+      "category": "annual_leave_cumulative_years",
+      "scenarioLabel": "工资福利/休假争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-034",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "用人单位不得以逼迫离岗等方式违法解除劳动合同",
+      "category": "forced_resignation_pay_cut",
+      "scenarioLabel": "混合争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-035",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "用人单位不得以劳务派遣协议期满为由解除劳动合同",
+      "category": "dispatch_agreement_expiry",
+      "scenarioLabel": "混合争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-036",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "依法制裁职业碰瓷行为",
+      "category": "bad_faith_litigation",
+      "scenarioLabel": "违法解除/辞退",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-037",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "快递小哥自带车辆的油耗未约定的由公司负担",
+      "category": "courier_vehicle_cost",
+      "scenarioLabel": "拖欠工资",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-038",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "用人单位应正确计付疫情期间停工停产的工资及生活费",
+      "category": "shutdown_wage_living_expense",
+      "scenarioLabel": "工资福利/休假争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-039",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "拒不支付劳动报酬案件",
+      "category": "wage_arrears_criminal_risk",
+      "scenarioLabel": "拖欠工资",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-041",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "疫情防控期间工资待遇争议",
+      "category": "pandemic_wage",
+      "scenarioLabel": "混合争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-043",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "未依法订立书面劳动合同争议",
+      "category": "no_written_contract",
+      "scenarioLabel": "混合争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-044",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "最低工资标准适用争议",
+      "category": "minimum_wage",
+      "scenarioLabel": "工资福利/休假争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-045",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "解除协议显失公平争议",
+      "category": "unfair_settlement",
+      "scenarioLabel": "违法解除/辞退",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少2项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-047",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "劳动者因用人单位欠薪解除合同并主张经济补偿",
+      "category": "wage_arrears_resignation_compensation",
+      "scenarioLabel": "混合争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-048",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "违法解除与赔偿金争议",
+      "category": "unlawful_termination",
+      "scenarioLabel": "违法解除/辞退",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    },
+    {
+      "caseId": "cq-adapt-050",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "用人单位未依法缴纳社会保险导致待遇损失争议",
+      "category": "social_insurance_loss",
+      "scenarioLabel": "社会保险争议",
+      "priority": "medium",
+      "recommendation": "样本可用于训练追问：补入职时间、金额、解除理由或证据节点。",
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "qualityFlags": [
+        "缺少1项关键信息",
+        "本地规则引擎回退"
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "caseId": "cq-adapt-001",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "劳动者拒绝违法超时加班安排，用人单位能否解除劳动合同",
+      "category": "overtime_unlawful_termination",
+      "scenarioLabel": "违法解除/辞退",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "违法解除/辞退",
+        "riskLevel": "low",
+        "caseCount": 3,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 0,
+        "qualityFlags": [
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "劳动争议中解除争议的裁判要点",
+        "违法解除劳动合同的典型争议",
+        "公司搬迁后不安置员工的违法解约"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）",
+        "重庆劳动争议仲裁办事指南"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-002",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "劳动者与用人单位订立放弃加班费协议，能否主张加班费",
+      "category": "overtime_waiver",
+      "scenarioLabel": "加班费/工时争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "加班费/工时争议",
+        "riskLevel": "low",
+        "caseCount": 1,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "加班费与工时争议的公开参考要点"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "劳动争议调解仲裁法"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-003",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "用人单位未按规章制度履行加班审批手续，能否认定劳动者加班事实",
+      "category": "overtime_evidence",
+      "scenarioLabel": "加班费/工时争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "加班费/工时争议",
+        "riskLevel": "low",
+        "caseCount": 1,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 2,
+        "qualityFlags": [
+          "缺少2项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "加班费与工时争议的公开参考要点"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "劳动争议调解仲裁法"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-004",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "用人单位与劳动者约定实行包薪制，是否需要依法支付加班费",
+      "category": "overtime_package_salary",
+      "scenarioLabel": "加班费/工时争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "加班费/工时争议",
+        "riskLevel": "low",
+        "caseCount": 1,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "加班费与工时争议的公开参考要点"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "劳动争议调解仲裁法"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-005",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "用人单位未与劳动者协商一致增加工作任务，劳动者是否有权拒绝",
+      "category": "workload_change",
+      "scenarioLabel": "拖欠工资",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "拖欠工资",
+        "riskLevel": "low",
+        "caseCount": 3,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "工资支付争议的本地裁判要点",
+        "一站式联调与速裁机制",
+        "拖欠工资证据不足的劳动报酬争议"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（二）",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-006",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "处理加班费争议，如何分配举证责任",
+      "category": "overtime_burden_of_proof",
+      "scenarioLabel": "加班费/工时争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "加班费/工时争议",
+        "riskLevel": "low",
+        "caseCount": 2,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 2,
+        "qualityFlags": [
+          "缺少2项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "加班费与工时争议的公开参考要点",
+        "劳动争议中解除争议的裁判要点"
+      ],
+      "matchedKnowledgeDocs": [
+        "劳动争议调解仲裁法",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-007",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "劳动者超时加班发生工伤，用工单位、劳务派遣单位是否承担连带赔偿责任",
+      "category": "dispatch_overtime_injury",
+      "scenarioLabel": "工伤待遇争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "工伤待遇争议",
+        "riskLevel": "low",
+        "caseCount": 3,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 2,
+        "qualityFlags": [
+          "缺少2项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "工伤待遇与停工留薪期公开参考",
+        "加班费与工时争议的公开参考要点",
+        "平台和外包用工劳动关系认定参考"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆劳动争议仲裁办事指南"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-008",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "用人单位以规章制度形式否认劳动者加班事实是否有效",
+      "category": "overtime_policy_invalid",
+      "scenarioLabel": "加班费/工时争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "加班费/工时争议",
+        "riskLevel": "low",
+        "caseCount": 1,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "加班费与工时争议的公开参考要点"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "劳动争议调解仲裁法"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-009",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "劳动者在离职文件上签字确认加班费已结清，是否有权请求支付欠付的加班费",
+      "category": "resignation_settlement",
+      "scenarioLabel": "加班费/工时争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "加班费/工时争议",
+        "riskLevel": "low",
+        "caseCount": 2,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "加班费与工时争议的公开参考要点",
+        "劳动争议中解除争议的裁判要点"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "劳动争议调解仲裁法",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（二）"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-010",
+      "sourceId": "spc-moh-2021-batch2",
+      "sourceCaseTitle": "加班费的仲裁时效应当如何认定",
+      "category": "overtime_limitation",
+      "scenarioLabel": "加班费/工时争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "加班费/工时争议",
+        "riskLevel": "low",
+        "caseCount": 2,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 2,
+        "qualityFlags": [
+          "缺少2项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "加班费与工时争议的公开参考要点",
+        "劳动争议中解除争议的裁判要点"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "劳动争议调解仲裁法",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-011",
+      "sourceId": "spc-moh-2023-batch3",
+      "sourceCaseTitle": "如何认定网约货车司机与平台企业之间是否存在劳动关系",
+      "category": "platform_labor_relation",
+      "scenarioLabel": "劳动关系认定",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "劳动关系认定",
+        "riskLevel": "low",
+        "caseCount": 1,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 2,
+        "qualityFlags": [
+          "缺少2项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "平台和外包用工劳动关系认定参考"
+      ],
+      "matchedKnowledgeDocs": [
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（二）",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-012",
+      "sourceId": "spc-moh-2023-batch3",
+      "sourceCaseTitle": "如何认定网约配送员与平台企业之间是否存在劳动关系",
+      "category": "delivery_labor_relation",
+      "scenarioLabel": "工伤待遇争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "工伤待遇争议",
+        "riskLevel": "low",
+        "caseCount": 2,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 2,
+        "qualityFlags": [
+          "缺少2项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "工伤待遇与停工留薪期公开参考",
+        "平台和外包用工劳动关系认定参考"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆劳动争议仲裁办事指南"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-013",
+      "sourceId": "spc-moh-2023-batch3",
+      "sourceCaseTitle": "外卖平台用工合作企业通过劳务公司招用网约配送员，如何认定劳动关系",
+      "category": "outsourced_delivery_relation",
+      "scenarioLabel": "劳动关系认定",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "劳动关系认定",
+        "riskLevel": "low",
+        "caseCount": 1,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "平台和外包用工劳动关系认定参考"
+      ],
+      "matchedKnowledgeDocs": [
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（二）",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-014",
+      "sourceId": "spc-moh-2023-batch3",
+      "sourceCaseTitle": "劳动者注册个体工商户与平台企业或其用工合作企业订立合作协议，能否认定劳动关系",
+      "category": "platform_individual_business",
+      "scenarioLabel": "劳动关系认定",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "劳动关系认定",
+        "riskLevel": "low",
+        "caseCount": 1,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 2,
+        "qualityFlags": [
+          "缺少2项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "平台和外包用工劳动关系认定参考"
+      ],
+      "matchedKnowledgeDocs": [
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（二）",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-015",
+      "sourceId": "spc-moh-2023-batch3",
+      "sourceCaseTitle": "如何认定网络主播与文化传播公司之间是否存在劳动关系",
+      "category": "livestream_relation",
+      "scenarioLabel": "劳动关系认定",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "劳动关系认定",
+        "riskLevel": "low",
+        "caseCount": 1,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 2,
+        "qualityFlags": [
+          "缺少2项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "平台和外包用工劳动关系认定参考"
+      ],
+      "matchedKnowledgeDocs": [
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（二）",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-016",
+      "sourceId": "spc-moh-2023-batch3",
+      "sourceCaseTitle": "如何认定网约家政服务人员与家政公司之间是否存在劳动关系",
+      "category": "housekeeping_relation",
+      "scenarioLabel": "劳动关系认定",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "劳动关系认定",
+        "riskLevel": "low",
+        "caseCount": 2,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 2,
+        "qualityFlags": [
+          "缺少2项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "平台和外包用工劳动关系认定参考",
+        "劳动争议中解除争议的裁判要点"
+      ],
+      "matchedKnowledgeDocs": [
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（二）",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆劳动争议仲裁办事指南"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-017",
+      "sourceId": "spc-moh-2025-batch4",
+      "sourceCaseTitle": "工伤职工能否根据诊断证明书主张延长停工留薪期",
+      "category": "work_injury_paid_leave",
+      "scenarioLabel": "工伤待遇争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "工伤待遇争议",
+        "riskLevel": "low",
+        "caseCount": 2,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "工伤待遇与停工留薪期公开参考",
+        "劳动争议中解除争议的裁判要点"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "劳动争议调解仲裁法"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-018",
+      "sourceId": "spc-moh-2025-batch4",
+      "sourceCaseTitle": "用人单位能否因女职工怀孕调岗降薪",
+      "category": "pregnancy_transfer_pay_cut",
+      "scenarioLabel": "女职工特殊保护",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "女职工特殊保护",
+        "riskLevel": "low",
+        "caseCount": 2,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "孕期女职工调岗降薪争议参考",
+        "劳动争议中解除争议的裁判要点"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "劳动争议调解仲裁法",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（二）"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-019",
+      "sourceId": "spc-moh-2025-batch4",
+      "sourceCaseTitle": "病亡职工的遗属能否以未依法缴纳社会保险费为由要求用人单位补足抚恤金",
+      "category": "social_insurance_survivor_benefit",
+      "scenarioLabel": "社会保险争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "社会保险争议",
+        "riskLevel": "low",
+        "caseCount": 1,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 2,
+        "qualityFlags": [
+          "缺少2项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "社保停缴与待遇损失的重庆复合争议"
+      ],
+      "matchedKnowledgeDocs": [
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-020",
+      "sourceId": "spc-moh-2025-batch4",
+      "sourceCaseTitle": "劳动者自行承担用人单位应缴未缴的社会保险费的，用人单位应否承担赔偿责任",
+      "category": "social_insurance_self_paid",
+      "scenarioLabel": "社会保险争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "社会保险争议",
+        "riskLevel": "low",
+        "caseCount": 2,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 0,
+        "qualityFlags": [
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "社保停缴与待遇损失的重庆复合争议",
+        "劳动争议中解除争议的裁判要点"
+      ],
+      "matchedKnowledgeDocs": [
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "劳动争议调解仲裁法"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-021",
+      "sourceId": "spc-moh-2025-batch4",
+      "sourceCaseTitle": "主体不适格，竞业限制条款是否有效",
+      "category": "non_compete_scope",
+      "scenarioLabel": "竞业限制争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "竞业限制争议",
+        "riskLevel": "low",
+        "caseCount": 1,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 0,
+        "qualityFlags": [
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "竞业限制主体和补偿审查参考"
+      ],
+      "matchedKnowledgeDocs": [
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（二）",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-022",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "先就业再毕业，在校大学生可与用人单位建立劳动关系吗",
+      "category": "student_labor_relation",
+      "scenarioLabel": "劳动关系认定",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "劳动关系认定",
+        "riskLevel": "low",
+        "caseCount": 1,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 0,
+        "qualityFlags": [
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "平台和外包用工劳动关系认定参考"
+      ],
+      "matchedKnowledgeDocs": [
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（二）",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-023",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "诚实信用首当先，事后反悔不支持",
+      "category": "settlement_good_faith",
+      "scenarioLabel": "混合争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "混合争议",
+        "riskLevel": "low",
+        "caseCount": 3,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "孕期女职工被停保解约的复合争议",
+        "关联企业混同用工下的工资和合同争议",
+        "孕产期女职工解聘中的工资和合同复合争议"
+      ],
+      "matchedKnowledgeDocs": [
+        "劳动争议调解仲裁法",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-024",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "单位违法解除劳动关系，我该怎么办",
+      "category": "unlawful_termination_discipline",
+      "scenarioLabel": "违法解除/辞退",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "违法解除/辞退",
+        "riskLevel": "low",
+        "caseCount": 3,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 0,
+        "qualityFlags": [
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "违法解除劳动合同的典型争议",
+        "劳动争议中解除争议的裁判要点",
+        "公司搬迁后不安置员工的违法解约"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "劳动争议调解仲裁法"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-025",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "名为劳务合同也可以构成劳动关系",
+      "category": "service_contract_labor_relation",
+      "scenarioLabel": "劳动关系认定",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "劳动关系认定",
+        "riskLevel": "low",
+        "caseCount": 1,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "平台和外包用工劳动关系认定参考"
+      ],
+      "matchedKnowledgeDocs": [
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（二）",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-026",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "关联公司间连续用工，工作年限应连续计算",
+      "category": "affiliated_company_service_years",
+      "scenarioLabel": "混合争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "混合争议",
+        "riskLevel": "low",
+        "caseCount": 3,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "孕期女职工被停保解约的复合争议",
+        "关联企业混同用工下的工资和合同争议",
+        "孕产期女职工解聘中的工资和合同复合争议"
+      ],
+      "matchedKnowledgeDocs": [
+        "劳动争议调解仲裁法",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-027",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "单位不交社保应赔偿",
+      "category": "social_insurance_nonpayment",
+      "scenarioLabel": "工资福利/休假争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "工资福利/休假争议",
+        "riskLevel": "low",
+        "caseCount": 2,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "年休假、最低工资和停工停产待遇参考",
+        "劳动争议中解除争议的裁判要点"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "劳动争议调解仲裁法",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-028",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "人事主管未签订劳动合同，请求双倍赔付不支持",
+      "category": "hr_manager_no_contract",
+      "scenarioLabel": "混合争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "混合争议",
+        "riskLevel": "low",
+        "caseCount": 3,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 0,
+        "qualityFlags": [
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "孕期女职工被停保解约的复合争议",
+        "关联企业混同用工下的工资和合同争议",
+        "孕产期女职工解聘中的工资和合同复合争议"
+      ],
+      "matchedKnowledgeDocs": [
+        "劳动争议调解仲裁法",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-029",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "员工患病未续假，违反劳动纪律被解雇",
+      "category": "sick_leave_discipline",
+      "scenarioLabel": "违法解除/辞退",
+      "riskLevel": "high",
+      "passed": true,
+      "warnings": [
+        "high_risk",
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "违法解除/辞退",
+        "riskLevel": "high",
+        "caseCount": 3,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 3,
+        "qualityFlags": [
+          "缺少3项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "违法解除劳动合同的典型争议",
+        "劳动争议中解除争议的裁判要点",
+        "公司搬迁后不安置员工的违法解约"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）",
+        "重庆劳动争议仲裁办事指南"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-030",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "恶意调岗被辞职，违法解除应赔偿",
+      "category": "malicious_transfer_constructive_dismissal",
+      "scenarioLabel": "混合争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "混合争议",
+        "riskLevel": "low",
+        "caseCount": 3,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "孕期女职工被停保解约的复合争议",
+        "关联企业混同用工下的工资和合同争议",
+        "孕产期女职工解聘中的工资和合同复合争议"
+      ],
+      "matchedKnowledgeDocs": [
+        "劳动争议调解仲裁法",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-031",
+      "sourceId": "henan-guancheng-2023",
+      "sourceCaseTitle": "实行综合工时制，超时加班看过来",
+      "category": "comprehensive_working_hours",
+      "scenarioLabel": "加班费/工时争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "加班费/工时争议",
+        "riskLevel": "low",
+        "caseCount": 1,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "加班费与工时争议的公开参考要点"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "劳动争议调解仲裁法"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-032",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "禁止以承揽协议等方式规避用工责任",
+      "category": "contracting_disguised_labor",
+      "scenarioLabel": "工伤待遇争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "工伤待遇争议",
+        "riskLevel": "low",
+        "caseCount": 2,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 2,
+        "qualityFlags": [
+          "缺少2项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "工伤待遇与停工留薪期公开参考",
+        "平台和外包用工劳动关系认定参考"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆劳动争议仲裁办事指南"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-033",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "年休假天数应按累计工作年限确定",
+      "category": "annual_leave_cumulative_years",
+      "scenarioLabel": "工资福利/休假争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "工资福利/休假争议",
+        "riskLevel": "low",
+        "caseCount": 1,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "年休假、最低工资和停工停产待遇参考"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "劳动争议调解仲裁法"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-034",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "用人单位不得以逼迫离岗等方式违法解除劳动合同",
+      "category": "forced_resignation_pay_cut",
+      "scenarioLabel": "混合争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "混合争议",
+        "riskLevel": "low",
+        "caseCount": 3,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "孕期女职工被停保解约的复合争议",
+        "关联企业混同用工下的工资和合同争议",
+        "孕产期女职工解聘中的工资和合同复合争议"
+      ],
+      "matchedKnowledgeDocs": [
+        "劳动争议调解仲裁法",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-035",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "用人单位不得以劳务派遣协议期满为由解除劳动合同",
+      "category": "dispatch_agreement_expiry",
+      "scenarioLabel": "混合争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "混合争议",
+        "riskLevel": "low",
+        "caseCount": 3,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "孕期女职工被停保解约的复合争议",
+        "关联企业混同用工下的工资和合同争议",
+        "孕产期女职工解聘中的工资和合同复合争议"
+      ],
+      "matchedKnowledgeDocs": [
+        "劳动争议调解仲裁法",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-036",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "依法制裁职业碰瓷行为",
+      "category": "bad_faith_litigation",
+      "scenarioLabel": "违法解除/辞退",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "违法解除/辞退",
+        "riskLevel": "low",
+        "caseCount": 3,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "劳动争议中解除争议的裁判要点",
+        "违法解除劳动合同的典型争议",
+        "公司搬迁后不安置员工的违法解约"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "劳动争议调解仲裁法",
+        "重庆劳动争议仲裁办事指南"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-037",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "快递小哥自带车辆的油耗未约定的由公司负担",
+      "category": "courier_vehicle_cost",
+      "scenarioLabel": "拖欠工资",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "拖欠工资",
+        "riskLevel": "low",
+        "caseCount": 3,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "工资支付争议的本地裁判要点",
+        "一站式联调与速裁机制",
+        "拖欠工资证据不足的劳动报酬争议"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（二）",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-038",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "用人单位应正确计付疫情期间停工停产的工资及生活费",
+      "category": "shutdown_wage_living_expense",
+      "scenarioLabel": "工资福利/休假争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "工资福利/休假争议",
+        "riskLevel": "low",
+        "caseCount": 3,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "年休假、最低工资和停工停产待遇参考",
+        "违法解除劳动合同的典型争议",
+        "劳动争议中解除争议的裁判要点"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-039",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "拒不支付劳动报酬案件",
+      "category": "wage_arrears_criminal_risk",
+      "scenarioLabel": "拖欠工资",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "拖欠工资",
+        "riskLevel": "low",
+        "caseCount": 3,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "工资支付争议的本地裁判要点",
+        "一站式联调与速裁机制",
+        "拖欠工资证据不足的劳动报酬争议"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（二）",
+        "劳动争议调解仲裁法",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-040",
+      "sourceId": "guangdong-court-2023",
+      "sourceCaseTitle": "劳务派遣用工责任争议",
+      "category": "dispatch_liability",
+      "scenarioLabel": "混合争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "混合争议",
+        "riskLevel": "low",
+        "caseCount": 3,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 0,
+        "qualityFlags": [
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "孕期女职工被停保解约的复合争议",
+        "关联企业混同用工下的工资和合同争议",
+        "孕产期女职工解聘中的工资和合同复合争议"
+      ],
+      "matchedKnowledgeDocs": [
+        "劳动争议调解仲裁法",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-041",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "疫情防控期间工资待遇争议",
+      "category": "pandemic_wage",
+      "scenarioLabel": "混合争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "混合争议",
+        "riskLevel": "low",
+        "caseCount": 3,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "孕期女职工被停保解约的复合争议",
+        "关联企业混同用工下的工资和合同争议",
+        "孕产期女职工解聘中的工资和合同复合争议"
+      ],
+      "matchedKnowledgeDocs": [
+        "劳动争议调解仲裁法",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-042",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "企业停工停产期间劳动报酬争议",
+      "category": "shutdown_wage",
+      "scenarioLabel": "工资福利/休假争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "工资福利/休假争议",
+        "riskLevel": "low",
+        "caseCount": 1,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 0,
+        "qualityFlags": [
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "年休假、最低工资和停工停产待遇参考"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "劳动争议调解仲裁法"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-043",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "未依法订立书面劳动合同争议",
+      "category": "no_written_contract",
+      "scenarioLabel": "混合争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "混合争议",
+        "riskLevel": "low",
+        "caseCount": 3,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "孕期女职工被停保解约的复合争议",
+        "关联企业混同用工下的工资和合同争议",
+        "孕产期女职工解聘中的工资和合同复合争议"
+      ],
+      "matchedKnowledgeDocs": [
+        "劳动争议调解仲裁法",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-044",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "最低工资标准适用争议",
+      "category": "minimum_wage",
+      "scenarioLabel": "工资福利/休假争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "工资福利/休假争议",
+        "riskLevel": "low",
+        "caseCount": 1,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "年休假、最低工资和停工停产待遇参考"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "劳动争议调解仲裁法"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-045",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "解除协议显失公平争议",
+      "category": "unfair_settlement",
+      "scenarioLabel": "违法解除/辞退",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "违法解除/辞退",
+        "riskLevel": "low",
+        "caseCount": 3,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 2,
+        "qualityFlags": [
+          "缺少2项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "违法解除劳动合同的典型争议",
+        "劳动争议中解除争议的裁判要点",
+        "公司搬迁后不安置员工的违法解约"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "劳动争议调解仲裁法"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-046",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "培训服务期与违约金争议",
+      "category": "training_service_period",
+      "scenarioLabel": "工资福利/休假争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "工资福利/休假争议",
+        "riskLevel": "low",
+        "caseCount": 1,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 0,
+        "qualityFlags": [
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "年休假、最低工资和停工停产待遇参考"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-047",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "劳动者因用人单位欠薪解除合同并主张经济补偿",
+      "category": "wage_arrears_resignation_compensation",
+      "scenarioLabel": "混合争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "混合争议",
+        "riskLevel": "low",
+        "caseCount": 3,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "孕期女职工被停保解约的复合争议",
+        "关联企业混同用工下的工资和合同争议",
+        "孕产期女职工解聘中的工资和合同复合争议"
+      ],
+      "matchedKnowledgeDocs": [
+        "劳动争议调解仲裁法",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-048",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "违法解除与赔偿金争议",
+      "category": "unlawful_termination",
+      "scenarioLabel": "违法解除/辞退",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "违法解除/辞退",
+        "riskLevel": "low",
+        "caseCount": 3,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "劳动争议中解除争议的裁判要点",
+        "违法解除劳动合同的典型争议",
+        "公司搬迁后不安置员工的违法解约"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "劳动争议调解仲裁法",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（二）"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-049",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "女职工特殊保护争议",
+      "category": "female_employee_protection",
+      "scenarioLabel": "女职工特殊保护",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "女职工特殊保护",
+        "riskLevel": "low",
+        "caseCount": 2,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 0,
+        "qualityFlags": [
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "孕期女职工调岗降薪争议参考",
+        "劳动争议中解除争议的裁判要点"
+      ],
+      "matchedKnowledgeDocs": [
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "劳动争议调解仲裁法",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（二）"
+      ],
+      "forbiddenHits": []
+    },
+    {
+      "caseId": "cq-adapt-050",
+      "sourceId": "spc-moh-2020-batch1",
+      "sourceCaseTitle": "用人单位未依法缴纳社会保险导致待遇损失争议",
+      "category": "social_insurance_loss",
+      "scenarioLabel": "社会保险争议",
+      "riskLevel": "low",
+      "passed": true,
+      "warnings": [
+        "missing_key_facts"
+      ],
+      "failures": [],
+      "trace": {
+        "providerMode": "local",
+        "model": "deepseek-v4-pro",
+        "scenarioLabel": "社会保险争议",
+        "riskLevel": "low",
+        "caseCount": 1,
+        "knowledgeDocCount": 4,
+        "citationCount": 3,
+        "missingInfoCount": 1,
+        "qualityFlags": [
+          "缺少1项关键信息",
+          "本地规则引擎回退"
+        ]
+      },
+      "matchedCases": [
+        "社保停缴与待遇损失的重庆复合争议"
+      ],
+      "matchedKnowledgeDocs": [
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）",
+        "重庆市人力资源和社会保障局发布劳动争议仲裁十大典型案例",
+        "重庆市高级人民法院发布第七批劳动争议十大典型案例",
+        "重庆劳动争议仲裁办事指南"
+      ],
+      "forbiddenHits": []
+    }
+  ],
+  "safety": {
+    "doesNotReadSecrets": true,
+    "doesNotExportRawNarratives": true,
+    "doesNotExportInternalTranscript": true,
+    "adaptedCasesAreNotClaimedAsRealChongqingCases": true
+  }
+}
