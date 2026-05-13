@@ -914,22 +914,36 @@ def call_deepseek_review(
     retrieval: dict,
     local_review: dict,
 ) -> tuple[dict, str] | None:
+    import sys
+    import traceback
+
     prompt = build_deepseek_review_prompt(extraction, retrieval, local_review)
     try:
+        review_timeout = max(runtime.timeout_seconds, 90)
         result = call_json_completion(
             api_key=api_key,
             base_url=runtime.base_url,
             model=runtime.model,
             messages=prompt,
             reasoning_effort=runtime.reasoning_effort,
-            timeout=runtime.timeout_seconds,
+            timeout=review_timeout,
         )
+        print(f"[DEEPSEEK REVIEW] raw content length: {len(result.content)}", file=sys.stderr)
         remote = parse_json_object(result.content)
+        print(f"[DEEPSEEK REVIEW] parsed keys: {list(remote.keys())}", file=sys.stderr)
         merged = merge_review_payload(local_review, remote)
-        if contains_unsafe_judgment(" ".join([merged["recommendation"], merged["analysis"], " ".join(merged["cautions"])])):
+        unsafe_text = " ".join([
+            merged.get("recommendation", ""),
+            merged.get("analysis", ""),
+            " ".join(merged.get("cautions", [])),
+        ])
+        if contains_unsafe_judgment(unsafe_text):
+            print("[DEEPSEEK REVIEW] blocked by unsafe judgment filter", file=sys.stderr)
             return None
         return merged, result.content.strip() or json.dumps(merged, ensure_ascii=False)
-    except Exception:
+    except Exception as exc:
+        print(f"[DEEPSEEK REVIEW ERROR] {type(exc).__name__}: {exc}", file=sys.stderr)
+        traceback.print_exc(file=sys.stderr)
         return None
 
 
