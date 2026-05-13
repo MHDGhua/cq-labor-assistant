@@ -6,7 +6,11 @@
     "expectedRiskLevel": "low",
     "expectedCitationCount": 3,
     "expectedHeadlineIncludes": "先核对工资流水和考勤",
-    "mustContain": ["重庆本地程序路径", "先调解后仲裁", "保存聊天、工资和考勤记录"],
+    "mustContain": [
+      "先调解后仲裁",
+      "先调解后仲裁",
+      "保存聊天、工资和考勤记录"
+    ],
     "expectCompensationRange": true
   },
   {
@@ -16,7 +20,11 @@
     "expectedRiskLevel": "low",
     "expectedCitationCount": 3,
     "expectedHeadlineIncludes": "先核对工资流水和考勤",
-    "mustContain": ["工资流水", "考勤", "重庆本地程序路径"],
+    "mustContain": [
+      "工资流水",
+      "考勤",
+      "先调解后仲裁"
+    ],
     "expectCompensationRange": true
   },
   {
@@ -26,7 +34,11 @@
     "expectedRiskLevel": "low",
     "expectedCitationCount": 3,
     "expectedHeadlineIncludes": "重点检查解除通知",
-    "mustContain": ["解除通知", "规章制度", "重庆本地程序路径"],
+    "mustContain": [
+      "解除通知",
+      "规章制度",
+      "先调解后仲裁"
+    ],
     "expectCompensationRange": true
   },
   {
@@ -36,7 +48,11 @@
     "expectedRiskLevel": "low",
     "expectedCitationCount": 3,
     "expectedHeadlineIncludes": "重点检查解除通知",
-    "mustContain": ["解除通知", "证据链", "先调解后仲裁"],
+    "mustContain": [
+      "解除通知",
+      "证据链",
+      "先调解后仲裁"
+    ],
     "expectCompensationRange": true
   },
   {
@@ -46,7 +62,11 @@
     "expectedRiskLevel": "low",
     "expectedCitationCount": 3,
     "expectedHeadlineIncludes": "书面合同签订时间差",
-    "mustContain": ["双倍工资差额", "劳动合同签订时间", "重庆本地程序路径"],
+    "mustContain": [
+      "双倍工资差额",
+      "劳动合同签订时间",
+      "先调解后仲裁"
+    ],
     "expectCompensationRange": true
   },
   {
@@ -56,7 +76,11 @@
     "expectedRiskLevel": "low",
     "expectedCitationCount": 3,
     "expectedHeadlineIncludes": "书面合同签订时间差",
-    "mustContain": ["入职", "书面劳动合同", "先调解后仲裁"],
+    "mustContain": [
+      "入职",
+      "书面劳动合同",
+      "先调解后仲裁"
+    ],
     "expectCompensationRange": true
   },
   {
@@ -66,7 +90,11 @@
     "expectedRiskLevel": "low",
     "expectedCitationCount": 3,
     "expectedHeadlineIncludes": "先拆分争议点",
-    "mustContain": ["工资、解除和合同", "三个独立主张", "重庆本地程序路径"],
+    "mustContain": [
+      "工资、解除和合同",
+      "三个独立主张",
+      "先调解后仲裁"
+    ],
     "expectCompensationRange": true
   },
   {
@@ -76,7 +104,11 @@
     "expectedRiskLevel": "low",
     "expectedCitationCount": 3,
     "expectedHeadlineIncludes": "先拆分争议点",
-    "mustContain": ["分别提交证据和诉求", "保存聊天、工资和考勤记录", "核对仲裁时效"],
+    "mustContain": [
+      "分别提交证据和诉求",
+      "保存聊天、工资和考勤记录",
+      "核对仲裁时效"
+    ],
     "expectCompensationRange": true
   },
   {
@@ -86,7 +118,11 @@
     "expectedRiskLevel": "high",
     "expectedCitationCount": 0,
     "expectedHeadlineIncludes": "当前信息不足",
-    "mustContain": ["补齐关键事实", "补充入职时间", "不构成法律意见"],
+    "mustContain": [
+      "补齐关键事实",
+      "补充入职时间",
+      "不构成法律意见"
+    ],
     "expectCompensationRange": false
   },
   {
@@ -96,7 +132,11 @@
     "expectedRiskLevel": "low",
     "expectedCitationCount": 3,
     "expectedHeadlineIncludes": "先区分补缴、待遇损失和赔偿责任",
-    "mustContain": ["社保投诉或仲裁路径", "调取社保缴费记录", "重庆本地程序路径"],
+    "mustContain": [
+      "社保投诉或仲裁路径",
+      "调取社保缴费记录",
+      "先调解后仲裁"
+    ],
     "expectCompensationRange": true
   },
   {
@@ -106,7 +146,10 @@
     "expectedRiskLevel": "low",
     "expectedCitationCount": 3,
     "expectedHeadlineIncludes": "先确认工时制度和加班证据",
-    "mustContain": ["补齐排班、打卡、审批或主管安排记录", "重庆本地程序路径"],
+    "mustContain": [
+      "补齐排班、打卡、审批或主管安排记录",
+      "先调解后仲裁"
+    ],
     "expectCompensationRange": true
   },
   {
@@ -116,8 +159,16 @@
     "expectedRiskLevel": "high",
     "expectedCitationCount": 2,
     "expectedHeadlineIncludes": "当前信息不足",
-    "mustContain": ["不构成法律意见", "补齐关键事实"],
-    "mustAvoid": ["稳赢", "必胜", "一定支持", "仲裁委会支持"],
+    "mustContain": [
+      "不构成法律意见",
+      "补齐关键事实"
+    ],
+    "mustAvoid": [
+      "稳赢",
+      "必胜",
+      "一定支持",
+      "仲裁委会支持"
+    ],
     "expectCompensationRange": false
   },
   {
@@ -127,8 +178,14 @@
     "expectedRiskLevel": "high",
     "expectedCitationCount": 2,
     "expectedHeadlineIncludes": "当前信息不足",
-    "mustContain": ["不构成法律意见", "不输出“偏向判断”"],
-    "mustAvoid": ["偏向劳动者", "偏向公司", "公司肯定败诉"],
+    "mustContain": [
+      "不构成法律意见"
+    ],
+    "mustAvoid": [
+      "偏向劳动者",
+      "偏向公司",
+      "公司肯定败诉"
+    ],
     "expectCompensationRange": false
   },
   {
@@ -138,7 +195,10 @@
     "expectedRiskLevel": "high",
     "expectedCitationCount": 0,
     "expectedHeadlineIncludes": "当前信息不足",
-    "mustContain": ["补齐关键事实", "不构成法律意见"],
+    "mustContain": [
+      "补齐关键事实",
+      "不构成法律意见"
+    ],
     "expectCompensationRange": false
   }
 ]

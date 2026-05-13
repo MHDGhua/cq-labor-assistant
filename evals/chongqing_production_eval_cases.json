@@ -15,7 +15,7 @@
       "expectedCitationCount": 3,
       "expectedMinConfidence": 0.7,
       "expectedHandoffRequired": false,
-      "mustContain": ["重庆本地程序路径", "工资流水", "考勤记录"],
+      "mustContain": ["先调解后仲裁", "工资流水", "考勤记录"],
       "mustAvoid": ["稳赢", "包赢", "偏向劳动者"],
       "requireFollowUp": false
     },
@@ -28,7 +28,7 @@
       "expectedCitationCount": 3,
       "expectedMinConfidence": 0.5,
       "expectedHandoffRequired": true,
-      "mustContain": ["解除通知", "建议人工复核", "重庆本地程序路径"],
+      "mustContain": ["解除通知", "建议人工复核", "先调解后仲裁"],
       "mustAvoid": ["一定支持", "公司肯定败诉"],
       "requireFollowUp": true
     },
@@ -41,7 +41,7 @@
       "expectedCitationCount": 3,
       "expectedMinConfidence": 0.7,
       "expectedHandoffRequired": false,
-      "mustContain": ["双倍工资差额", "劳动合同签订时间", "重庆本地程序路径"],
+      "mustContain": ["双倍工资差额", "劳动合同签订时间", "先调解后仲裁"],
       "mustAvoid": ["稳赢", "必胜"],
       "requireFollowUp": true
     },
@@ -54,7 +54,7 @@
       "expectedCitationCount": 3,
       "expectedMinConfidence": 0.65,
       "expectedHandoffRequired": false,
-      "mustContain": ["工时制度", "排班", "重庆本地程序路径"],
+      "mustContain": ["工时制度", "排班", "先调解后仲裁"],
       "mustAvoid": ["仲裁委一定支持"],
       "requireFollowUp": true
     },
@@ -67,7 +67,7 @@
       "expectedCitationCount": 3,
       "expectedMinConfidence": 0.7,
       "expectedHandoffRequired": false,
-      "mustContain": ["管理从属性", "用工控制", "重庆本地程序路径"],
+      "mustContain": ["管理从属性", "用工控制", "先调解后仲裁"],
       "mustAvoid": ["必然认定"],
       "requireFollowUp": true
     },
@@ -80,7 +80,7 @@
       "expectedCitationCount": 3,
       "expectedMinConfidence": 0.7,
       "expectedHandoffRequired": false,
-      "mustContain": ["社保投诉或仲裁路径", "缴费记录", "重庆本地程序路径"],
+      "mustContain": ["社保投诉或仲裁路径", "缴费记录", "先调解后仲裁"],
       "mustAvoid": ["一定补缴成功"],
       "requireFollowUp": true
     },
@@ -93,7 +93,7 @@
       "expectedCitationCount": 3,
       "expectedMinConfidence": 0.65,
       "expectedHandoffRequired": false,
-      "mustContain": ["工伤认定", "停工留薪", "重庆本地程序路径"],
+      "mustContain": ["工伤认定", "停工留薪", "先调解后仲裁"],
       "mustAvoid": ["肯定能拿到"],
       "requireFollowUp": true
     },
@@ -106,7 +106,7 @@
       "expectedCitationCount": 3,
       "expectedMinConfidence": 0.7,
       "expectedHandoffRequired": false,
-      "mustContain": ["三期保护", "调岗降薪", "重庆本地程序路径"],
+      "mustContain": ["三期保护", "调岗降薪", "先调解后仲裁"],
       "mustAvoid": ["一定违法"],
       "requireFollowUp": true
     },
@@ -119,7 +119,7 @@
       "expectedCitationCount": 3,
       "expectedMinConfidence": 0.65,
       "expectedHandoffRequired": false,
-      "mustContain": ["补偿支付", "限制范围", "重庆本地程序路径"],
+      "mustContain": ["补偿支付", "限制范围", "先调解后仲裁"],
       "mustAvoid": ["公司一定无权主张"],
       "requireFollowUp": true
     },
@@ -132,7 +132,7 @@
       "expectedCitationCount": 3,
       "expectedMinConfidence": 0.7,
       "expectedHandoffRequired": false,
-      "mustContain": ["停工停产", "拆分金额", "重庆本地程序路径"],
+      "mustContain": ["停工停产", "拆分金额", "先调解后仲裁"],
       "mustAvoid": ["一定按最低工资全额支持"],
       "requireFollowUp": true
     },
@@ -145,7 +145,7 @@
       "expectedCitationCount": 3,
       "expectedMinConfidence": 0.72,
       "expectedHandoffRequired": false,
-      "mustContain": ["拆分争议点", "三个独立主张", "重庆本地程序路径"],
+      "mustContain": ["拆分争议点", "三个独立主张", "先调解后仲裁"],
       "mustAvoid": ["稳赢"],
       "requireFollowUp": true
     },

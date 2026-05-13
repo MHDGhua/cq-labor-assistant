@@ -205,6 +205,13 @@ export interface AnalysisResult {
   review: ReviewResult;
   transcript: Array<{ agent: string; output: string }>;
   trace: TraceSummary;
+  statuteWarning?: {
+    warning: boolean;
+    daysElapsed: number;
+    monthsElapsed: number;
+    urgency: "medium" | "high";
+    message: string;
+  };
 }
 
 export interface AnalysisHistoryItem {

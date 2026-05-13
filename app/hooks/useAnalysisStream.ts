@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useRef, useState } from "react";
-import type { PublicAnalysisResponse } from "@/lib/agents/types";
+import type { AnalysisResult, PublicAnalysisResponse } from "@/lib/agents/types";
+import { toPublicAnalysisResponse } from "@/lib/agents";
 
 interface StreamStage {
   current: number;
@@ -129,9 +130,12 @@ export function useAnalysisStream(): UseAnalysisStreamReturn {
           case "retrieval_done":
             setStage((prev) => prev ? { ...prev, label: `找到 ${parsed.caseCount} 个案例` } : prev);
             break;
-          case "complete":
-            setResult(parsed as PublicAnalysisResponse);
+          case "complete": {
+            const raw = parsed as AnalysisResult;
+            const publicResult = toPublicAnalysisResponse(raw);
+            setResult({ ...publicResult, analysisId: raw.analysisId });
             break;
+          }
         }
       } catch {
         // ignore parse errors

@@ -157,7 +157,7 @@ export function reviewCase(
     followUpQuestions: buildFollowUpQuestions(extraction),
     cautions: [
       "本结果仅用于信息参考，不构成法律意见。",
-      "重庆本地化展示应聚焦流程、公开案例和材料要求，不输出“偏向判断”。",
+      "具体情况请咨询专业律师或拨打12348法律援助热线。",
       "如果存在时效、管辖或证据不足问题，应尽快补充材料。"
     ],
     nextSteps: buildNextSteps(extraction.scenario),
@@ -418,7 +418,9 @@ function clampConfidence(value: number): number {
 }
 
 function buildAnalysis(extraction: ExtractionResult, caseNames: string, docNames: string): string {
-  return `系统将争议识别为“${extraction.scenarioLabel}”。检索命中的重庆本地/公开参考案例包括${caseNames || "暂无"}；法源与程序参考包括${docNames || "暂无"}。结论审校的重点是：事实是否闭环、证据是否能支撑诉求、以及重庆本地程序路径是否适合先调解后仲裁。`;
+  const cases = caseNames || "暂无";
+  const docs = docNames || "暂无";
+  return `你的情况属于”${extraction.scenarioLabel}”类争议。参考的重庆本地案例包括${cases}；相关法律依据包括${docs}。建议重点关注：事实是否完整、证据是否能支撑诉求、以及是否适合先调解后仲裁。`;
 }
 
 function buildNextSteps(scenario: Scenario): string[] {
@@ -636,19 +638,19 @@ function hasLaborContext(extraction: ExtractionResult): boolean {
 
 export function toPublicAnalysisResponse(result: AnalysisResult): PublicAnalysisResponse {
   const citations: PublicCitation[] = [
-    ...result.retrieval.knowledgeDocs.slice(0, 2).map((item) => ({
+    ...result.retrieval.knowledgeDocs.slice(0, 3).map((item) => ({
       title: item.title,
       label: `${item.categoryLabel ?? "法源"} · ${item.region}`,
       url: item.sourceUrl,
       kind: citationKindForDoc(item.category)
     })),
-    ...result.retrieval.cases.slice(0, 1).map((item) => ({
+    ...result.retrieval.cases.slice(0, 2).map((item) => ({
       title: item.title,
       label: `${item.scenarioLabel} · ${item.district}`,
       url: item.sourceUrl,
       kind: "case" as const
     }))
-  ].slice(0, 3);
+  ].slice(0, 5);
 
   return {
     analysisId: result.analysisId,
@@ -664,7 +666,8 @@ export function toPublicAnalysisResponse(result: AnalysisResult): PublicAnalysis
     followUpQuestions: result.review.followUpQuestions,
     nextSteps: result.review.nextSteps,
     cautions: result.review.cautions,
-    citations
+    citations,
+    statuteWarning: result.statuteWarning,
   };
 }
 

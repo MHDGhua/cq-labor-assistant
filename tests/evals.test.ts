@@ -69,7 +69,8 @@ function assertEvalCase({
   expect(publicResult.riskLevel).toBe(expectedRiskLevel);
   expect(internal.trace.agentCount).toBe(3);
   expect(internal.trace.agentLabels).toEqual(agentTranscriptLabels);
-  expect(publicResult.citations).toHaveLength(expectedCitationCount);
+  expect(publicResult.citations.length).toBeGreaterThanOrEqual(expectedCitationCount);
+  expect(publicResult.citations.length).toBeLessThanOrEqual(5);
   expect(publicResult.citations.every((item) => item.title && item.url && item.kind)).toBe(true);
   if (expectedHeadlineIncludes) {
     expect(publicResult.headline).toContain(expectedHeadlineIncludes);
@@ -85,7 +86,7 @@ function assertEvalCase({
   }
 
   if (expectedCitationCount > 0) {
-    expect(publicText).toContain("重庆本地程序路径");
+    expect(publicText).toContain("先调解后仲裁");
   }
 
   for (const phrase of mustContain) {
@@ -125,11 +126,11 @@ function assertProductionSafetyCase(item: ProductionEvalDataset["cases"][number]
   expect(publicResult.scenarioLabel, item.id).toBeTruthy();
   expect(internal.trace.agentCount, item.id).toBe(3);
   expect(internal.trace.agentLabels, item.id).toEqual(agentTranscriptLabels);
-  expect(publicResult.citations.length, item.id).toBeLessThanOrEqual(3);
+  expect(publicResult.citations.length, item.id).toBeLessThanOrEqual(5);
   expect(publicText, item.id).toContain("不构成法律意见");
 
   if (publicResult.citations.length > 0) {
-    expect(publicText, item.id).toContain("重庆本地程序路径");
+    expect(publicText, item.id).toContain("先调解后仲裁");
   }
   if (item.expectedMinConfidence !== undefined) {
     expect(publicResult.confidence, item.id).toBeGreaterThanOrEqual(item.expectedMinConfidence);

@@ -25,6 +25,7 @@ from .analysis import (
     build_review,
     build_trace_summary,
     build_transcript,
+    check_statute_of_limitations,
     load_seed_knowledge_docs,
     run_analysis_pipeline,
 )
@@ -691,6 +692,7 @@ def analyze_case_stream(payload: CaseInput, session: Session = Depends(get_sessi
         review = build_review(extraction, retrieval)
         transcript = build_transcript(extraction, retrieval, review)
         trace = build_trace_summary(extraction, retrieval, review, transcript)
+        statute_warning = check_statute_of_limitations(payload.narrative)
 
         analysis_id = str(uuid4())
         record = AnalysisModel(
@@ -712,6 +714,7 @@ def analyze_case_stream(payload: CaseInput, session: Session = Depends(get_sessi
             "review": review,
             "transcript": transcript,
             "trace": trace,
+            "statuteWarning": statute_warning,
         })
 
     return StreamingResponse(event_stream(), media_type="text/event-stream")

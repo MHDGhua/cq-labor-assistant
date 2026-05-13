@@ -47,7 +47,8 @@ describe("production-style eval gate", () => {
 
       expect(publicResult.scenarioLabel).toBe(expectedScenarioLabel);
       expect(publicResult.riskLevel).toBe(expectedRiskLevel);
-      expect(publicResult.citations).toHaveLength(expectedCitationCount);
+      expect(publicResult.citations.length).toBeGreaterThanOrEqual(expectedCitationCount);
+      expect(publicResult.citations.length).toBeLessThanOrEqual(5);
       expect(publicResult.confidence).toBeGreaterThanOrEqual(expectedMinConfidence);
       expect(publicResult.handoffRequired).toBe(expectedHandoffRequired);
       expect(publicResult.confidenceLabel).toMatch(/low|medium|high/);

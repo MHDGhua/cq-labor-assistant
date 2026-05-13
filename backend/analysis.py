@@ -553,17 +553,17 @@ def build_review(extraction: dict, retrieval: dict) -> dict:
         "riskLevel": risk_level,
         **decision_signals,
         "recommendation": build_recommendation(extraction["scenario"]),
-        "analysis": (
-            f"系统将争议识别为“{extraction['scenarioLabel']}”。"
-            f"检索命中的重庆本地/公开参考案例包括{case_titles}；法条与程序参考包括{doc_titles}。"
-            "结论审校重点是：事实是否闭环、证据是否能支撑诉求、以及重庆本地程序路径是否适合先调解后仲裁。"
+        “analysis”: (
+            f”你的情况属于”{extraction['scenarioLabel']}”类争议。”
+            f”参考的重庆本地案例包括{case_titles}；相关法律依据包括{doc_titles}。”
+            “建议重点关注：事实是否完整、证据是否能支撑诉求、以及是否适合先调解后仲裁。”
         ),
         "compensationRange": build_compensation_range(extraction["scenario"]),
         "followUpQuestions": build_follow_up_questions(extraction),
-        "cautions": [
-            "本结果仅用于信息参考，不构成法律意见。",
-            "重庆本地化展示应聚焦流程、公开案例和材料要求，不输出“偏向判断”。",
-            "如果存在时效、管辖或证据不足问题，应尽快补充材料。",
+        “cautions”: [
+            “本结果仅用于信息参考，不构成法律意见。”,
+            “具体情况请咨询专业律师或拨打12348法律援助热线。”,
+            “如果存在时效、管辖或证据不足问题，应尽快补充材料。”,
         ],
         "nextSteps": build_next_steps(extraction["scenario"]),
         "sourceSummary": {

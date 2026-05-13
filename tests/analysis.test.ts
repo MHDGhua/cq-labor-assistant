@@ -8,28 +8,28 @@ const fixedRagAnswerEvalSamples = [
     narrative: "我在重庆九龙坡上班，公司拖欠两个月工资，有工资条、银行转账和考勤记录。",
     expectedScenarioLabel: "拖欠工资",
     expectedRiskLevel: "low",
-    expectedCitationCount: 3
+    expectedCitationCount: 5
   },
   {
     name: "unlawful termination",
     narrative: "我在重庆江北入职两年，公司口头辞退并说不要我来了，没有说明理由，也没有书面通知，想申请仲裁。",
     expectedScenarioLabel: "违法解除/辞退",
     expectedRiskLevel: "low",
-    expectedCitationCount: 3
+    expectedCitationCount: 5
   },
   {
     name: "no written contract",
     narrative: "我在重庆渝北上班八个月，公司一直没有签书面劳动合同，有入职登记、社保和排班记录。",
     expectedScenarioLabel: "未签书面劳动合同",
     expectedRiskLevel: "low",
-    expectedCitationCount: 3
+    expectedCitationCount: 5
   },
   {
     name: "mixed dispute",
     narrative: "我在重庆上班，公司拖欠三个月工资，还口头辞退我，也一直没签书面劳动合同，微信和考勤都还在。",
     expectedScenarioLabel: "混合争议",
     expectedRiskLevel: "low",
-    expectedCitationCount: 3
+    expectedCitationCount: 5
   }
 ] as const;
 
@@ -114,7 +114,7 @@ describe("labor analysis pipeline", () => {
       if (internal.trace.missingInfoCount > 0) {
         expect(publicResult.followUpQuestions.length).toBeGreaterThan(0);
       }
-      expect(publicResult.answer).toMatch(/重庆本地程序路径.*先调解后仲裁/);
+      expect(publicResult.answer).toMatch(/先调解后仲裁/);
       expect(publicAnswerText).not.toMatch(unsafeBiasJudgmentPattern);
     }
   );

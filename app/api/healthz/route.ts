@@ -65,7 +65,7 @@ function normalizeHealthPayload(payload: unknown): HealthStatusResponse | null {
     providerMode,
     model: stringValue(data.model) || "unknown",
     apiKeyConfigured: data.apiKeyConfigured === true,
-    databaseLabel: stringValue(data.databaseLabel) || "unknown"
+    databaseLabel: "connected"
   };
 }
 

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { FormEvent, useEffect, useMemo, useState } from "react";
-import { agentWorkflowSteps } from "@/lib/agents/workflow";
 import { demoPrompts } from "@/lib/data/cases";
 import type { PublicAnalysisResponse, PublicReportExport } from "@/lib/agents/types";
 import PipelineProgress from "./components/PipelineProgress";
@@ -88,7 +87,7 @@ export default function HomePage() {
       cautions: result.cautions,
       citations: result.citations,
       disclosure:
-        "本报告仅包含用户端公开结论、少量引用来源和操作建议，不包含内部推理链、agent transcript、检索评分或案例数据库全文。"
+        "本报告仅供参考，不构成法律意见。如需专业帮助，请拨打12348法律援助热线或咨询当地律师。"
     };
   }, [result]);
 
@@ -195,17 +194,14 @@ export default function HomePage() {
         <nav className="topbar__nav">
           <ThemeToggle />
           <FontSizeToggle />
-          <Link href="/manage">内部案例库</Link>
         </nav>
       </header>
 
       <section className="conversation-hero">
-        <div className="stamp">Chongqing Labor Arbitration RAG</div>
-        <p className="eyebrow">重庆劳动法 · 对话式分析</p>
-        <h1>把劳动仲裁案情说清楚，剩下的交给内部多 Agent。</h1>
+        <p className="eyebrow">重庆劳动法 · 智能分析</p>
+        <h1>描述你的劳动争议，获取免费分析和行动建议</h1>
         <p className="lede">
-          系统会在后台完成案情抽取、重庆本地案例与法源检索、结论审校。
-          用户端只展示最终分析，不展开内部推理链。
+          系统会根据你的情况，匹配重庆本地法规和公开案例，给出具体的维权建议和下一步行动指南。
         </p>
       </section>
 
@@ -267,7 +263,7 @@ export default function HomePage() {
 
             <div className="composer-actions">
               <button className="primary" type="submit" disabled={loading}>
-                {loading ? "内部检索与审校中..." : "生成分析结论"}
+                {loading ? "正在分析中..." : "开始分析"}
               </button>
               <button type="button" className="link-button" onClick={() => setInputMode("guided")}>
                 用引导模式
@@ -279,16 +275,6 @@ export default function HomePage() {
           </form>
         )}
 
-        <aside className="panel brief-panel">
-          <p className="eyebrow">内部工作方式</p>
-          <div className="brief-list">
-            {agentWorkflowSteps.map((step, index) => (
-              <p key={step.label}>
-                {index + 1}. {step.objective}
-              </p>
-            ))}
-          </div>
-        </aside>
       </section>
 
       {stream.stage && loading ? (
