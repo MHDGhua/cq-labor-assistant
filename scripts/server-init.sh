@@ -22,11 +22,12 @@ if [ ! -f "$REMOTE_DIR/.env" ]; then
   echo "    IMPORTANT: Edit /opt/new-project/.env with production values"
 fi
 
-echo "==> Building frontend (local pre-build path)..."
-docker run --rm -v "$(pwd):/app" -w /app node:20-alpine sh -c "npm ci --omit=dev && npm run build"
+echo "==> Installing dependencies and building frontend..."
+docker run --rm --network host -v "$(pwd):/app" -w /app node:20-alpine sh -c "npm config set registry https://registry.npmmirror.com && npm install && npx next build"
 
-echo "==> Starting services..."
-docker compose -f docker-compose.prod.yml up -d --build
+echo "==> Building and starting services..."
+docker compose -f docker-compose.prod.yml build frontend
+docker compose -f docker-compose.prod.yml up -d
 
 echo "==> Setup complete!"
 echo "    Edit .env with production secrets, then restart:"
