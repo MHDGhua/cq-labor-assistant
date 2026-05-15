@@ -5,12 +5,13 @@ import { FormEvent, useRef, KeyboardEvent } from "react";
 interface Props {
   onSubmit: (text: string) => void;
   loading: boolean;
+  onStop: () => void;
   suggestedReplies: string[];
   value: string;
   onChange: (value: string) => void;
 }
 
-export default function ChatComposer({ onSubmit, loading, suggestedReplies, value, onChange }: Props) {
+export default function ChatComposer({ onSubmit, loading, onStop, suggestedReplies, value, onChange }: Props) {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   function handleSubmit(e: FormEvent) {
@@ -61,12 +62,20 @@ export default function ChatComposer({ onSubmit, loading, suggestedReplies, valu
           rows={1}
           disabled={loading}
         />
-        <button className="composer-send" type="submit" disabled={loading || !value.trim()} aria-label="发送">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="22" y1="2" x2="11" y2="13" />
-            <polygon points="22 2 15 22 11 13 2 9 22 2" />
-          </svg>
-        </button>
+        {loading ? (
+          <button className="composer-stop" type="button" onClick={onStop} aria-label="停止">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <rect x="6" y="6" width="12" height="12" rx="2" />
+            </svg>
+          </button>
+        ) : (
+          <button className="composer-send" type="submit" disabled={!value.trim()} aria-label="发送">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13" />
+              <polygon points="22 2 15 22 11 13 2 9 22 2" />
+            </svg>
+          </button>
+        )}
       </form>
     </div>
   );

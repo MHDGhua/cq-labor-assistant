@@ -27,6 +27,7 @@ interface UseChatStreamReturn {
   submit: (narrative: string) => void;
   retry: () => void;
   clear: () => void;
+  stop: () => void;
 }
 
 const MAX_RETRIES = 2;
@@ -255,11 +256,26 @@ export function useChatStream(): UseChatStreamReturn {
     if (lastNarrativeRef.current) doSubmit(lastNarrativeRef.current, true);
   }, [doSubmit]);
 
+  const stop = useCallback(() => {
+    if (abortRef.current) {
+      abortRef.current.abort();
+      abortRef.current = null;
+    }
+    if (typingIdRef.current) {
+      removeTyping();
+    }
+    if (streamMsgIdRef.current) {
+      streamMsgIdRef.current = "";
+      streamContentRef.current = "";
+    }
+    setLoading(false);
+  }, [removeTyping]);
+
   const clear = useCallback(() => {
     setMessages([]);
     setError(null);
     setSuggestedReplies([]);
   }, []);
 
-  return { messages, loading, error, suggestedReplies, submit, retry, clear };
+  return { messages, loading, error, suggestedReplies, submit, retry, clear, stop };
 }

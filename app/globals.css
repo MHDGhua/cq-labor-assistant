@@ -303,6 +303,24 @@ button, textarea, input, select { font: inherit; }
   height: 18px;
 }
 
+.composer-stop {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #666;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.1s;
+}
+.composer-stop:hover { background: #555; }
+.composer-stop:active { transform: scale(0.92); }
+.composer-stop svg { width: 16px; height: 16px; }
+
 /* ===== Welcome Screen ===== */
 .welcome {
   flex: 1;

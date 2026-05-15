@@ -76,6 +76,7 @@ export default function HomePage() {
       <ChatComposer
         onSubmit={handleSubmit}
         loading={chat.loading}
+        onStop={chat.stop}
         suggestedReplies={chat.suggestedReplies}
         value={input}
         onChange={setInput}
