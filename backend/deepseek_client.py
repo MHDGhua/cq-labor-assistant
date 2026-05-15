@@ -124,16 +124,18 @@ def call_streaming_completion(
     messages: list[dict[str, str]],
     reasoning_effort: str,
     timeout: int = 120,
+    json_mode: bool = False,
 ) -> "Iterator[str]":
     from typing import Iterator
 
     payload: dict[str, Any] = {
         "model": model,
         "messages": messages,
-        "response_format": {"type": "json_object"},
-        "temperature": 0.1,
+        "temperature": 0.3,
         "stream": True,
     }
+    if json_mode:
+        payload["response_format"] = {"type": "json_object"}
 
     request = urllib.request.Request(
         f"{base_url.rstrip('/')}/chat/completions",

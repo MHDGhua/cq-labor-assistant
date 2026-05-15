@@ -957,7 +957,7 @@ def stream_deepseek_review(
 ):
     import sys
 
-    prompt = build_deepseek_review_prompt(extraction, retrieval, local_review)
+    prompt = build_deepseek_stream_prompt(extraction, retrieval)
     review_timeout = max(runtime.timeout_seconds, 120)
     try:
         token_iter = call_streaming_completion(
@@ -967,27 +967,58 @@ def stream_deepseek_review(
             messages=prompt,
             reasoning_effort=runtime.reasoning_effort,
             timeout=review_timeout,
+            json_mode=False,
         )
         full_content = ""
         for token in token_iter:
             full_content += token
             yield ("token", token)
 
-        remote = parse_json_object(full_content)
-        merged = merge_review_payload(local_review, remote)
-        unsafe_text = " ".join([
-            merged.get("recommendation", ""),
-            merged.get("analysis", ""),
-            " ".join(merged.get("cautions", [])),
-        ])
-        if contains_unsafe_judgment(unsafe_text):
+        if contains_unsafe_judgment(full_content):
             print("[DEEPSEEK REVIEW STREAM] blocked by unsafe judgment filter", file=sys.stderr)
             yield ("error", None)
             return
+
+        merged = dict(local_review)
+        if len(full_content.strip()) > 30:
+            merged["analysis"] = full_content.strip()
         yield ("done", merged)
     except Exception as exc:
         print(f"[DEEPSEEK REVIEW STREAM ERROR] {type(exc).__name__}: {exc}", file=sys.stderr)
         yield ("error", None)
+
+
+def build_deepseek_stream_prompt(extraction: dict, retrieval: dict) -> list[dict[str, str]]:
+    cases_summary = []
+    for c in retrieval.get("cases", [])[:3]:
+        cases_summary.append(f"- {c['title']}：{c.get('holding', c.get('summary', ''))}")
+    docs_summary = []
+    for d in retrieval.get("knowledgeDocs", [])[:3]:
+        docs_summary.append(f"- {d['title']}：{d.get('summary', '')}")
+
+    system = (
+        "你是重庆劳动法律师，正在和劳动者面对面聊天。"
+        "直接用'你'称呼对方，语气温暖专业。"
+        "针对用户具体事实分析，结合案例法规，给出方向判断和下一步建议。"
+        "不要输出JSON，不要用标题格式，直接说话。"
+        "控制在300-500字。"
+    )
+    user = "\n".join([
+        f"争议类型：{extraction.get('scenarioLabel', '未识别')}",
+        f"事实：{'；'.join(extraction.get('facts', []))}",
+        f"时间线：{'；'.join(extraction.get('timeline', []))}",
+        f"证据：{'；'.join(extraction.get('evidence', []))}",
+        f"缺口：{'；'.join(extraction.get('missingInfo', []))}",
+        "",
+        "参考案例：" + ("\n".join(cases_summary) if cases_summary else "暂无"),
+        "法规：" + ("\n".join(docs_summary) if docs_summary else "暂无"),
+        "",
+        "请直接给这位劳动者分析他的情况和建议。",
+    ])
+    return [
+        {"role": "system", "content": system},
+        {"role": "user", "content": user},
+    ]
 
 def build_deepseek_extraction_prompt(narrative: str) -> list[dict[str, str]]:
     system = (

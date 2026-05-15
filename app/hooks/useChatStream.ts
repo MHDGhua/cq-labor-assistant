@@ -182,51 +182,64 @@ export function useChatStream(): UseChatStreamReturn {
             break;
           }
           case "complete": {
-            if (streamMsgIdRef.current) {
-              setMessages(prev => prev.filter(m => m.id !== streamMsgIdRef.current));
+            const hadStream = !!streamMsgIdRef.current;
+            if (hadStream) {
+              // Keep the streamed message but add metadata
+              const streamId = streamMsgIdRef.current;
+              const raw = parsed as AnalysisResult;
+              const pub = toPublicAnalysisResponse(raw);
+              setMessages(prev => prev.map(m =>
+                m.id === streamId ? { ...m, metadata: { analysisId: raw.analysisId, riskLevel: pub.riskLevel, scenarioLabel: pub.scenarioLabel } } : m
+              ));
               streamMsgIdRef.current = "";
               streamContentRef.current = "";
+
+              if (pub.nextSteps.length > 0) {
+                pushMessage({ role: "assistant", content: "接下来你可以这样做：", type: "steps",
+                  metadata: { steps: pub.nextSteps }
+                });
+              }
+
+              if (pub.compensationRange) {
+                pushMessage({ role: "assistant", content: pub.compensationRange, type: "text" });
+              }
+
+              if (pub.citations.length > 0) {
+                pushMessage({ role: "assistant", content: `以上建议参考了${pub.citations.length}条法律依据`, type: "citations",
+                  metadata: { citations: pub.citations }
+                });
+              }
+
+              setSuggestedReplies(pub.followUpQuestions);
             } else {
               removeTyping();
-            }
-            const raw = parsed as AnalysisResult;
-            const pub = toPublicAnalysisResponse(raw);
-            const scenario = pub.scenarioLabel;
-            const risk = pub.riskLevel;
+              const raw = parsed as AnalysisResult;
+              const pub = toPublicAnalysisResponse(raw);
+              const scenario = pub.scenarioLabel;
+              const risk = pub.riskLevel;
 
-            const empathy = risk === "high"
-              ? `你好，我仔细看了你描述的情况。这属于"${scenario}"类争议，目前材料缺口较大，但别担心，我来帮你理清思路。`
-              : risk === "medium"
-              ? `你好，我看了你的情况。这属于"${scenario}"类争议，有些地方需要补充材料，我来帮你分析。`
-              : `你好，我看了你的情况。这属于"${scenario}"类争议，你的材料基础比较完整，我来给你具体建议。`;
-
-            pushMessage({ role: "assistant", content: empathy, type: "text",
-              metadata: { riskLevel: risk, scenarioLabel: scenario, analysisId: raw.analysisId }
-            });
-
-            pushMessage({ role: "assistant", content: pub.answer, type: "text" });
-
-            if (pub.nextSteps.length > 0) {
-              pushMessage({ role: "assistant", content: "接下来你可以这样做：", type: "steps",
-                metadata: { steps: pub.nextSteps }
+              pushMessage({ role: "assistant", content: pub.answer, type: "text",
+                metadata: { riskLevel: risk, scenarioLabel: scenario, analysisId: raw.analysisId }
               });
-            }
 
-            if (pub.compensationRange) {
-              pushMessage({ role: "assistant", content: pub.compensationRange, type: "text" });
-            }
+              if (pub.nextSteps.length > 0) {
+                pushMessage({ role: "assistant", content: "接下来你可以这样做：", type: "steps",
+                  metadata: { steps: pub.nextSteps }
+                });
+              }
 
-            if (pub.citations.length > 0) {
-              pushMessage({ role: "assistant", content: `以上建议参考了${pub.citations.length}条法律依据`, type: "citations",
-                metadata: { citations: pub.citations }
-              });
-            }
+              if (pub.compensationRange) {
+                pushMessage({ role: "assistant", content: pub.compensationRange, type: "text" });
+              }
 
-            if (pub.cautions.length > 0) {
-              pushMessage({ role: "system", content: pub.cautions.join(""), type: "text" });
-            }
+              if (pub.citations.length > 0) {
+                pushMessage({ role: "assistant", content: `以上建议参考了${pub.citations.length}条法律依据`, type: "citations",
+                  metadata: { citations: pub.citations }
+                });
+              }
 
-            setSuggestedReplies(pub.followUpQuestions);
+              setSuggestedReplies(pub.followUpQuestions);
+            }
             break;
           }
         }
