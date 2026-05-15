@@ -45,6 +45,9 @@ export function useChatStream(): UseChatStreamReturn {
   const retriesRef = useRef(0);
   const typingIdRef = useRef("");
 
+  const streamContentRef = useRef("");
+  const streamMsgIdRef = useRef("");
+
   const pushMessage = useCallback((msg: Omit<ChatMessage, "id" | "timestamp">) => {
     const full: ChatMessage = { ...msg, id: nextId(), timestamp: Date.now() };
     setMessages(prev => [...prev, full]);
@@ -59,6 +62,16 @@ export function useChatStream(): UseChatStreamReturn {
 
   const removeTyping = useCallback(() => {
     setMessages(prev => prev.filter(m => m.id !== typingIdRef.current));
+  }, []);
+
+  const appendStreamContent = useCallback((token: string) => {
+    streamContentRef.current += token;
+    const id = streamMsgIdRef.current;
+    if (id) {
+      setMessages(prev => prev.map(m =>
+        m.id === id ? { ...m, content: streamContentRef.current } : m
+      ));
+    }
   }, []);
 
   const doSubmit = useCallback((narrative: string, isRetry: boolean) => {
@@ -153,8 +166,29 @@ export function useChatStream(): UseChatStreamReturn {
           case "retrieval_done":
             updateTyping(`找到了${parsed.caseCount}个相关案例和${parsed.docCount}条法规，正在整理建议...`);
             break;
+          case "review_token": {
+            if (!streamMsgIdRef.current) {
+              removeTyping();
+              streamContentRef.current = "";
+              const id = nextId();
+              streamMsgIdRef.current = id;
+              setMessages(prev => [...prev, {
+                id, role: "assistant", content: "", type: "text", timestamp: Date.now()
+              }]);
+            }
+            if (parsed.t) {
+              appendStreamContent(parsed.t);
+            }
+            break;
+          }
           case "complete": {
-            removeTyping();
+            if (streamMsgIdRef.current) {
+              setMessages(prev => prev.filter(m => m.id !== streamMsgIdRef.current));
+              streamMsgIdRef.current = "";
+              streamContentRef.current = "";
+            } else {
+              removeTyping();
+            }
             const raw = parsed as AnalysisResult;
             const pub = toPublicAnalysisResponse(raw);
             const scenario = pub.scenarioLabel;
@@ -198,7 +232,7 @@ export function useChatStream(): UseChatStreamReturn {
         }
       } catch { /* ignore parse errors */ }
     }
-  }, [pushMessage, updateTyping, removeTyping]);
+  }, [pushMessage, updateTyping, removeTyping, appendStreamContent]);
 
   const submit = useCallback((narrative: string) => {
     doSubmit(narrative, false);

@@ -13,7 +13,7 @@ from .agent_workflow import (
     get_agent_runtime_config,
     get_provider_api_key,
 )
-from .deepseek_client import call_json_completion, parse_json_object
+from .deepseek_client import call_json_completion, call_streaming_completion, parse_json_object
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -946,6 +946,48 @@ def call_deepseek_review(
         traceback.print_exc(file=sys.stderr)
         return None
 
+
+def stream_deepseek_review(
+    *,
+    api_key: str,
+    runtime: AgentRuntimeConfig,
+    extraction: dict,
+    retrieval: dict,
+    local_review: dict,
+):
+    import sys
+
+    prompt = build_deepseek_review_prompt(extraction, retrieval, local_review)
+    review_timeout = max(runtime.timeout_seconds, 120)
+    try:
+        token_iter = call_streaming_completion(
+            api_key=api_key,
+            base_url=runtime.base_url,
+            model=runtime.model,
+            messages=prompt,
+            reasoning_effort=runtime.reasoning_effort,
+            timeout=review_timeout,
+        )
+        full_content = ""
+        for token in token_iter:
+            full_content += token
+            yield ("token", token)
+
+        remote = parse_json_object(full_content)
+        merged = merge_review_payload(local_review, remote)
+        unsafe_text = " ".join([
+            merged.get("recommendation", ""),
+            merged.get("analysis", ""),
+            " ".join(merged.get("cautions", [])),
+        ])
+        if contains_unsafe_judgment(unsafe_text):
+            print("[DEEPSEEK REVIEW STREAM] blocked by unsafe judgment filter", file=sys.stderr)
+            yield ("error", None)
+            return
+        yield ("done", merged)
+    except Exception as exc:
+        print(f"[DEEPSEEK REVIEW STREAM ERROR] {type(exc).__name__}: {exc}", file=sys.stderr)
+        yield ("error", None)
 
 def build_deepseek_extraction_prompt(narrative: str) -> list[dict[str, str]]:
     system = (

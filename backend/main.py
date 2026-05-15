@@ -29,8 +29,9 @@ from .analysis import (
     check_statute_of_limitations,
     load_seed_knowledge_docs,
     run_analysis_pipeline,
+    stream_deepseek_review,
 )
-from .agent_workflow import get_agent_runtime_config, get_provider_api_key
+from .agent_workflow import AGENT_TRANSCRIPT_LABELS, get_agent_runtime_config, get_provider_api_key
 from .database import Base, SessionLocal, engine, get_session
 from .models import AnalysisModel, AuditLogModel, CaseModel, FeedbackModel, KnowledgeDocModel
 from .schemas import (
@@ -697,17 +698,27 @@ def analyze_case_stream(payload: CaseInput, session: Session = Depends(get_sessi
         if runtime.provider_mode == "deepseek" and runtime.api_key_configured:
             api_key = get_provider_api_key()
             if api_key:
-                review_result = call_deepseek_review(
+                raw_content = ""
+                stream_success = False
+                for event_type, event_data in stream_deepseek_review(
                     api_key=api_key,
                     runtime=runtime,
                     extraction=extraction,
                     retrieval=retrieval,
                     local_review=review,
-                )
-                if review_result is not None:
-                    review, raw_review = review_result
-                    from .agent_workflow import AGENT_TRANSCRIPT_LABELS
-                    transcript_overrides[AGENT_TRANSCRIPT_LABELS[2]] = raw_review
+                ):
+                    if event_type == "token":
+                        raw_content += event_data
+                        yield _sse_event("review_token", {"t": event_data})
+                    elif event_type == "done":
+                        review = event_data
+                        transcript_overrides[AGENT_TRANSCRIPT_LABELS[2]] = raw_content
+                        stream_success = True
+                    elif event_type == "error":
+                        pass
+
+                if not stream_success:
+                    yield _sse_event("review_token", {"t": ""})
 
         transcript = build_transcript(extraction, retrieval, review, transcript_overrides)
         trace = build_trace_summary(extraction, retrieval, review, transcript, runtime=runtime)

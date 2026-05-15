@@ -116,6 +116,75 @@ def _should_retry_without_optional_fields(error: DeepSeekHTTPError) -> bool:
     )
 
 
+def call_streaming_completion(
+    *,
+    api_key: str,
+    base_url: str,
+    model: str,
+    messages: list[dict[str, str]],
+    reasoning_effort: str,
+    timeout: int = 120,
+) -> "Iterator[str]":
+    from typing import Iterator
+
+    payload: dict[str, Any] = {
+        "model": model,
+        "messages": messages,
+        "response_format": {"type": "json_object"},
+        "temperature": 0.1,
+        "stream": True,
+    }
+
+    request = urllib.request.Request(
+        f"{base_url.rstrip('/')}/chat/completions",
+        data=json.dumps(payload, ensure_ascii=False).encode("utf-8"),
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+
+    try:
+        response = urllib.request.urlopen(request, timeout=timeout)
+    except urllib.error.HTTPError as error:
+        detail = error.read().decode("utf-8", errors="ignore")
+        raise RuntimeError(f"DeepSeek streaming API HTTP {error.code}: {detail}") from error
+    except urllib.error.URLError as error:
+        raise RuntimeError(f"DeepSeek streaming request failed: {error.reason}") from error
+
+    def _iter_tokens():
+        buffer = b""
+        try:
+            while True:
+                chunk = response.read(4096)
+                if not chunk:
+                    break
+                buffer += chunk
+                while b"\n" in buffer:
+                    line_bytes, buffer = buffer.split(b"\n", 1)
+                    line = line_bytes.decode("utf-8", errors="ignore").strip()
+                    if not line or not line.startswith("data: "):
+                        continue
+                    data_str = line[6:]
+                    if data_str == "[DONE]":
+                        return
+                    try:
+                        obj = json.loads(data_str)
+                        choices = obj.get("choices", [])
+                        if choices:
+                            delta = choices[0].get("delta", {})
+                            content = delta.get("content", "")
+                            if content:
+                                yield content
+                    except json.JSONDecodeError:
+                        continue
+        finally:
+            response.close()
+
+    return _iter_tokens()
+
+
 def parse_json_object(content: str) -> dict[str, Any]:
     try:
         parsed = json.loads(content)
