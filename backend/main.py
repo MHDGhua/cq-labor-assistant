@@ -747,7 +747,11 @@ def analyze_case_stream(payload: CaseInput, session: Session = Depends(get_sessi
             "statuteWarning": statute_warning,
         })
 
-    return StreamingResponse(event_stream(), media_type="text/event-stream")
+    return StreamingResponse(
+        event_stream(),
+        media_type="text/event-stream",
+        headers={"X-Accel-Buffering": "no", "Cache-Control": "no-cache"},
+    )
 
 
 def _sse_event(event_type: str, data: dict) -> str:

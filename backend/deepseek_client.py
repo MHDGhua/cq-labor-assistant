@@ -156,31 +156,24 @@ def call_streaming_completion(
         raise RuntimeError(f"DeepSeek streaming request failed: {error.reason}") from error
 
     def _iter_tokens():
-        buffer = b""
         try:
-            while True:
-                chunk = response.read(4096)
-                if not chunk:
-                    break
-                buffer += chunk
-                while b"\n" in buffer:
-                    line_bytes, buffer = buffer.split(b"\n", 1)
-                    line = line_bytes.decode("utf-8", errors="ignore").strip()
-                    if not line or not line.startswith("data: "):
-                        continue
-                    data_str = line[6:]
-                    if data_str == "[DONE]":
-                        return
-                    try:
-                        obj = json.loads(data_str)
-                        choices = obj.get("choices", [])
-                        if choices:
-                            delta = choices[0].get("delta", {})
-                            content = delta.get("content", "")
-                            if content:
-                                yield content
-                    except json.JSONDecodeError:
-                        continue
+            for raw_line in response:
+                line = raw_line.decode("utf-8", errors="ignore").strip()
+                if not line or not line.startswith("data: "):
+                    continue
+                data_str = line[6:]
+                if data_str == "[DONE]":
+                    return
+                try:
+                    obj = json.loads(data_str)
+                    choices = obj.get("choices", [])
+                    if choices:
+                        delta = choices[0].get("delta", {})
+                        content = delta.get("content", "")
+                        if content:
+                            yield content
+                except json.JSONDecodeError:
+                    continue
         finally:
             response.close()
 

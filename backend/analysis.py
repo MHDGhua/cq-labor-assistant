@@ -959,11 +959,12 @@ def stream_deepseek_review(
 
     prompt = build_deepseek_stream_prompt(extraction, retrieval)
     review_timeout = max(runtime.timeout_seconds, 120)
+    stream_model = os.getenv("DEEPSEEK_STREAM_MODEL", "").strip() or "deepseek-chat"
     try:
         token_iter = call_streaming_completion(
             api_key=api_key,
             base_url=runtime.base_url,
-            model=runtime.model,
+            model=stream_model,
             messages=prompt,
             reasoning_effort=runtime.reasoning_effort,
             timeout=review_timeout,
